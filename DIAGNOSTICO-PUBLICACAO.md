@@ -64,3 +64,11 @@ Pendências incluem cinco ferramentas completas, busca local, páginas editoriai
 
 ## Sincronização com GitHub
 Código, imagem original, verificação de publicação e documentação reunidos em um commit na branch main. Pacotes ZIP, dist e node_modules não integram este commit.
+
+## Verificador com DNS público — publicado em 17/10/2026
+- Consulta opcional real de registros A/AAAA ao Google Public DNS, com divulgação prévia de hostname e provedor, sem caminho, query, credenciais ou fragmento.
+- NXDOMAIN, resolução positiva, ausência de IP e erros tratados separadamente; timeout de 10s, cancelamento e proteção contra resultados antigos.
+- Link complementar para consulta RDAP/WHOIS na ICANN. Não há consulta automatizada de reputação ou de registro nesta versão.
+- Política de privacidade, CSP, home e README atualizados.
+- Build sem erros; cenários locais, DNS simulado, privacidade das solicitações e links das 24 páginas aprovados.
+- Publicado sem-golpe_20261017_100000.zip. Chrome: example.com exibiu IPv4/IPv6; teste-sem-golpe-20261017.invalid exibiu NXDOMAIN. Falha transitória da primeira consulta exibiu mensagem inconclusiva corretamente.

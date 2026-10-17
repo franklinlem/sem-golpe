@@ -27,3 +27,14 @@ Retomar o código existente, validar a versão inicial e preparar publicação e
 2. Incluir modalidade falso boleto, com retirada da segunda via em canal oficial, conferência do beneficiário e roteiro após pagamento; citar Banco Central e Febraban.
 3. Substituir conversa desenhada na home pela imagem fictícia fornecida, otimizada em WebP, com dimensões, carregamento tardio, descrição acessível e transcrição; repetir no guia de falso parente.
 4. Executar build e verificação de links, conferir layout e preparar publicação da revisão autorizada pelo usuário.
+
+## Verificador com consulta pública de DNS
+- Problema: análise sintática não verifica existência do endereço.
+- Implementar consulta opcional explícita ao Google Public DNS (API JSON DoH), somente após clique em Consultar DNS público.
+- Enviar exclusivamente hostname normalizado; descartar credenciais, caminho, parâmetros e fragmento. Informar domínio e provedor antes do clique; atualizar privacidade e CSP.
+- Consultar A e AAAA; distinguir NXDOMAIN, domínio sem IP, falha/timeout e resolução positiva, sem associar existência a legitimidade.
+- Não visitar o endereço suspeito. IPs literais não recebem uma falsa consulta de existência DNS.
+- Oferecer acesso à consulta pública RDAP/WHOIS da ICANN como investigação complementar, sem fingir consulta de reputação.
+- Cancelar consulta ao limpar ou iniciar outra análise e impedir resultado antigo sobre endereço novo.
+- Testar respostas simuladas de DNS, falhas e minimização de dados, compilar, publicar e verificar domínio existente e inexistente no navegador.
+- Referência: https://developers.google.com/speed/public-dns/docs/doh/json

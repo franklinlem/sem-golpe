@@ -1,19 +1,22 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Verificar link suspeito" description="Examine o domínio de um link suspeito localmente, sem abrir o endereço."><div class="container breadcrumbs"><a href="/">Início</a> / Verificar link</div><section class="page-hero"><div class="container"><span class="eyebrow">Não abrimos o endereço</span><h1>Veja o domínio real antes de clicar.</h1><p class="hero-copy">Cole o link. A análise acontece apenas neste navegador e destaca sinais técnicos que merecem atenção.</p></div></section><section style="padding-top:10px"><div class="container"><form id="url-form" class="card tool-shell"><div class="field"><label for="suspect-url">Link ou domínio suspeito</label><input id="suspect-url" type="text" inputmode="url" autocomplete="off" placeholder="exemplo: banco-seguro.example/confirmar" required/><small>Não cole links com senhas, tokens ou dados pessoais.</small></div><div class="actions"><button class="button" type="submit">Examinar sem abrir</button><button class="button secondary" type="reset">Limpar</button></div><div id="url-result" class="result" role="status" aria-live="polite"></div></form><div class="disclaimer" style="margin-top:22px"><strong>Importante:</strong> cadeado e HTTPS não provam que um site é legítimo. Procure o endereço oficial por conta própria.</div></div></section></BaseLayout>
+<BaseLayout title="Verificar link suspeito" description="Examine o endereço e consulte se o domínio possui registros DNS, sem abrir o link suspeito."><div class="container breadcrumbs"><a href="/">Início</a> / Verificar link</div><section class="page-hero"><div class="container"><span class="eyebrow">Não abrimos o endereço</span><h1>Veja o domínio real antes de clicar.</h1><p class="hero-copy">Cole o link para ver o destino real e os sinais técnicos. Depois, se desejar, consulte o DNS público para verificar se o endereço existe e possui IPs publicados.</p></div></section><section style="padding-top:10px"><div class="container"><form id="url-form" class="card tool-shell"><div class="field"><label for="suspect-url">Link ou domínio suspeito</label><input id="suspect-url" type="text" inputmode="url" autocomplete="off" placeholder="exemplo: banco-seguro.example/confirmar" required/><small>Não cole links com senhas, tokens ou dados pessoais.</small></div><div class="actions"><button class="button" type="submit">Examinar sem abrir</button><button class="button secondary" type="reset">Limpar</button></div><div id="url-result" class="result" role="status" aria-live="polite"></div></form><div class="disclaimer" style="margin-top:22px"><strong>Importante:</strong> cadeado e HTTPS não provam que um site é legítimo. Procure o endereço oficial por conta própria.</div></div></section></BaseLayout>
 <script>
 const form = document.querySelector<HTMLFormElement>('#url-form')!;
 const input = document.querySelector<HTMLInputElement>('#suspect-url')!;
 const out = document.querySelector('#url-result')!;
+let activeQuery: AbortController | undefined;
+let generation = 0;
 function addText(tag: string, text: string) {
   const element = document.createElement(tag);
   element.textContent = text;
   out.append(element);
 }
-form.addEventListener('reset', () => { out.replaceChildren(); out.classList.remove('show'); });
+form.addEventListener('reset', () => { generation++; activeQuery?.abort(); out.replaceChildren(); out.classList.remove('show'); });
 form.addEventListener('submit', event => {
   event.preventDefault();
+  generation++; activeQuery?.abort();
   out.replaceChildren();
   let raw = input.value.trim();
   if (!/^[a-z][a-z0-9+.-]*:/i.test(raw)) raw = 'https://' + raw;
@@ -36,7 +39,57 @@ form.addEventListener('submit', event => {
       const list = document.createElement('ul');
       flags.forEach(flag => { const item = document.createElement('li'); item.textContent = flag; list.append(item); });
       out.append(list);
-    } else addText('p', 'Nenhum dos sinais técnicos básicos foi encontrado. Isso não comprova legitimidade.');
+    } else addText('p', 'Nenhum dos sinais técnicos básicos foi encontrado. A existência ainda não foi consultada; isso não comprova legitimidade.');
+    addText('h3', 'Verificação de existência');
+    const literalIP = /^\d{1,3}(\.\d{1,3}){3}$/.test(host) || host.startsWith('[');
+    if (literalIP) {
+      addText('p', 'O endereço contém um IP literal. Uma consulta de domínio não verifica se esse IP está acessível nem se é confiável.');
+    } else if (!host.includes('.') || host.endsWith('.local') || host === 'localhost') {
+      addText('p', 'Este nome não parece um domínio público. Não enviaremos nomes locais à consulta externa.');
+    } else {
+      addText('p', `A consulta opcional envia apenas ${host} ao Google Public DNS, que também recebe seu IP de conexão. Não enviamos o caminho, parâmetros, senhas ou fragmentos do link. Não visitamos o site suspeito.`);
+      const button = document.createElement('button');
+      button.type = 'button'; button.className = 'button'; button.textContent = 'Consultar DNS público';
+      const status = document.createElement('div'); status.setAttribute('role', 'status');
+      out.append(button); out.append(status);
+      const currentGeneration = generation;
+      button.addEventListener('click', async () => {
+        if (button.disabled) return;
+        button.disabled = true; button.textContent = 'Consultando…';
+        status.textContent = 'Consultando registros IPv4 e IPv6…';
+        const controller = new AbortController(); activeQuery = controller;
+        const timeout = setTimeout(() => controller.abort(), 10000);
+        try {
+          const responses = await Promise.all(['A', 'AAAA'].map(async type => {
+            const endpoint = new URL('https://dns.google/resolve');
+            endpoint.searchParams.set('name', host); endpoint.searchParams.set('type', type);
+            endpoint.searchParams.set('edns_client_subnet', '0.0.0.0/0');
+            const response = await fetch(endpoint, { signal: controller.signal, credentials: 'omit', referrerPolicy: 'no-referrer' });
+            if (!response.ok) throw new Error('Consulta indisponível');
+            const data = await response.json();
+            if (!Number.isInteger(data.Status)) throw new Error('Resposta inválida');
+            return data as { Status: number; Answer?: {type: number; data: string}[] };
+          }));
+          if (generation !== currentGeneration) return;
+          if (responses.every(response => response.Status === 3)) {
+            status.textContent = 'Domínio não encontrado no DNS público (NXDOMAIN). Confira se há erro de digitação. Não prossiga com pagamentos ou fornecimento de dados por esse endereço. Este resultado não informa, sozinho, se o domínio está registrado.';
+          } else if (responses.some(response => response.Status !== 0)) {
+            status.textContent = 'Consulta inconclusiva: o DNS retornou erro ou respostas divergentes. Isso não significa que o endereço seja inexistente ou seguro.';
+          } else {
+            const addresses = [...new Set(responses.flatMap(response => (response.Answer ?? []).filter(answer => [1, 28].includes(answer.type) && typeof answer.data === 'string').map(answer => answer.data)))];
+            status.textContent = addresses.length ? `Domínio resolve no DNS público. IPs publicados: ${addresses.join(', ')}. Isso não comprova que o site esteja acessível, pertença à empresa mencionada ou seja seguro.` : 'O DNS respondeu, mas não publicou endereço IPv4 ou IPv6 para esse nome. Pode haver outros registros; não concluímos que o domínio não existe.';
+          }
+        } catch {
+          if (generation === currentGeneration) status.textContent = 'Não foi possível concluir a consulta (rede, limite do serviço ou tempo esgotado). Não confunda falha de consulta com domínio inexistente.';
+        } finally {
+          clearTimeout(timeout);
+          if (generation === currentGeneration) { button.disabled = false; button.textContent = 'Consultar DNS novamente'; }
+        }
+      });
+      addText('h3', 'Registro do domínio (RDAP/WHOIS)');
+      addText('p', 'Para investigar registro, datas e registrador, use a consulta da ICANN e informe o domínio. Alguns dados podem estar protegidos ou indisponíveis. Um registro antigo também não garante segurança.');
+      const lookup = document.createElement('a'); lookup.href = 'https://lookup.icann.org/'; lookup.textContent = 'Abrir consulta de registro na ICANN'; lookup.target = '_blank'; lookup.rel = 'noopener noreferrer'; out.append(lookup);
+    }
     addText('p', 'Confirme o endereço completo no aplicativo ou documento oficial da instituição, sem usar contatos presentes na mensagem. Nomes de marcas em subdomínios não demonstram vínculo com a instituição.');
   } catch {
     addText('h2', 'Não foi possível interpretar o endereço');

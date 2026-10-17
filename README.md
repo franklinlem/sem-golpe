@@ -35,7 +35,7 @@ npm run preview
 
 ## Privacidade
 
-As ferramentas do MVP executam no navegador. Não introduza telemetria que registre links, contexto, respostas ou conteúdo digitado pelo usuário.
+As ferramentas executam no navegador. A consulta opcional ao Google Public DNS envia apenas o hostname após clique explícito, sem caminho, parâmetros ou credenciais; veja a política de privacidade. Não introduza telemetria que registre links, contexto, respostas ou conteúdo digitado pelo usuário.
 
 ## Autoria
 
@@ -44,3 +44,4 @@ Desenvolvido por Franklin Martins, Investigador de Polícia de Classe Especial, 
 ## Licença
 
 Todos os direitos reservados até a definição separada das licenças do código, conteúdo e identidade visual.
+
