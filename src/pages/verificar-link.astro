@@ -1,8 +1,84 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Verificar link suspeito" description="Examine o domínio de um link suspeito localmente, sem abrir o endereço."><div class="container breadcrumbs"><a href="/">Início</a> / Verificar link</div><section class="page-hero"><div class="container"><span class="eyebrow">Não abrimos o endereço</span><h1>Veja o domínio real antes de clicar.</h1><p class="hero-copy">Cole o link. A análise acontece apenas neste navegador e destaca sinais técnicos que merecem atenção.</p></div></section><section style="padding-top:10px"><div class="container"><form id="url-form" class="card tool-shell"><div class="field"><label for="suspect-url">Link ou domínio suspeito</label><input id="suspect-url" type="text" inputmode="url" autocomplete="off" placeholder="exemplo: banco-seguro.example/confirmar" required/><small>Não cole links com senhas, tokens ou dados pessoais.</small></div><div class="actions"><button class="button" type="submit">Examinar sem abrir</button><button class="button secondary" type="reset">Limpar</button></div><div id="url-result" class="result" role="status" aria-live="polite"></div></form><div class="disclaimer" style="margin-top:22px"><strong>Importante:</strong> cadeado e HTTPS não provam que um site é legítimo. Procure o endereço oficial por conta própria.</div></div></section></BaseLayout>
+<BaseLayout title="Verificar link suspeito" description="Examine o domínio de um link suspeito localmente, sem abrir o endereço.">
+  <div class="container breadcrumbs"><a href="/">Início</a> / Verificar link</div>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Não abrimos o endereço</span>
+      <h1>Veja o domínio real antes de clicar.</h1>
+      <p class="hero-copy">Cole o link. A análise acontece apenas neste navegador e destaca alguns sinais técnicos que merecem atenção.</p>
+    </div>
+  </section>
+  <section class="tool-section">
+    <div class="container">
+      <form id="url-form" class="card tool-shell">
+        <div class="field">
+          <label for="suspect-url">Link ou domínio suspeito</label>
+          <input id="suspect-url" type="text" inputmode="url" autocomplete="off" placeholder="exemplo: banco.example/confirmar" required />
+          <small>Não cole links com senhas, tokens ou dados pessoais.</small>
+        </div>
+        <div class="actions">
+          <button class="button" type="submit">Examinar sem abrir</button>
+          <button class="button secondary" type="reset">Limpar</button>
+        </div>
+        <div id="url-result" class="result" role="status" aria-live="polite"></div>
+      </form>
+      <div class="disclaimer" style="margin-top:22px"><strong>Importante:</strong> cadeado e HTTPS não provam que um site é legítimo. Procure o endereço oficial por conta própria.</div>
+    </div>
+  </section>
+</BaseLayout>
 <script>
-const form=document.querySelector<HTMLFormElement>('#url-form')!;const input=document.querySelector<HTMLInputElement>('#suspect-url')!;const out=document.querySelector('#url-result')!;
-form.addEventListener('reset',()=>setTimeout(()=>out.classList.remove('show'),0));form.addEventListener('submit',e=>{e.preventDefault();let raw=input.value.trim();if(!/^[a-z][a-z0-9+.-]*:/i.test(raw))raw='https://'+raw;try{const u=new URL(raw);const host=u.hostname;const flags:string[]=[];if(u.protocol!=='https:')flags.push('não usa HTTPS');if(/^\d{1,3}(\.\d{1,3}){3}$/.test(host))flags.push('usa um endereço IP em vez de domínio');if(host.startsWith('xn--')||host.includes('.xn--'))flags.push('contém caracteres internacionais codificados (punycode)');if(host.split('.').length>4)flags.push('possui muitos níveis de subdomínio');if(u.port&&!['80','443'].includes(u.port))flags.push(`usa porta incomum (${u.port})`);if(u.username||u.password)flags.push('inclui credenciais antes do domínio');const parts=host.split('.');const registrable=parts.length>=2?parts.slice(-2).join('.'):host;out.innerHTML=`<span class="badge">Análise local</span><h2 style="margin-top:14px;word-break:break-word">${host}</h2><p><strong>Domínio aparente:</strong> ${registrable}</p>${flags.length?`<h3>Sinais técnicos encontrados</h3><ul>${flags.map(f=>`<li>${f}</li>`).join('')}</ul>`:'<p>Nenhum dos sinais técnicos básicos foi encontrado. Isso <strong>não comprova legitimidade</strong>.</p>'}<p>Confirme o domínio no aplicativo ou documento oficial da instituição, sem usar contatos presentes na mensagem.</p>`;out.classList.add('show');}catch{out.innerHTML='<h2>Não foi possível interpretar o endereço</h2><p>Confira se o link contém um domínio, como exemplo.com.br. Não tente abri-lo para corrigir.</p>';out.classList.add('show');}});
+import { analyzeLink } from '@/lib/analyze-link.js';
+
+const form = document.querySelector<HTMLFormElement>('#url-form')!;
+const input = document.querySelector<HTMLInputElement>('#suspect-url')!;
+const out = document.querySelector<HTMLElement>('#url-result')!;
+
+function addText(parent: HTMLElement, tag: string, text: string, className = '') {
+  const element = document.createElement(tag);
+  element.textContent = text;
+  if (className) element.className = className;
+  parent.append(element);
+  return element;
+}
+
+function renderError(message: string) {
+  out.replaceChildren();
+  addText(out, 'h2', 'Não foi possível examinar esse endereço');
+  addText(out, 'p', message);
+  out.classList.add('show');
+}
+
+form.addEventListener('reset', () => setTimeout(() => {
+  out.replaceChildren();
+  out.classList.remove('show');
+}, 0));
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const analysis = analyzeLink(input.value);
+  if (!analysis.ok) {
+    renderError(analysis.message);
+    return;
+  }
+
+  out.replaceChildren();
+  addText(out, 'span', 'Análise local', 'badge');
+  const hostname = addText(out, 'h2', analysis.hostname, 'result-hostname');
+  hostname.style.marginTop = '14px';
+  addText(out, 'p', `Protocolo: ${analysis.protocol}`);
+
+  if (analysis.flags.length) {
+    addText(out, 'h3', 'Sinais técnicos encontrados');
+    const list = document.createElement('ul');
+    for (const flag of analysis.flags) addText(list, 'li', flag);
+    out.append(list);
+  } else {
+    addText(out, 'p', 'Nenhum dos sinais técnicos avaliados apareceu. Isso não comprova legitimidade.');
+  }
+
+  addText(out, 'p', 'Confirme o domínio em um canal oficial que você encontrou por conta própria.');
+  out.classList.add('show');
+});
 </script>

@@ -9,10 +9,12 @@ Conteúdo educativo. O projeto não substitui polícia, banco, advogado ou atend
 ## Recursos
 
 - Identificador educativo de sinais de risco
-- Verificador local de links
+- Verificador local de links (não abre nem consulta o endereço)
 - Gerador de prompt seguro para IA
-- Guias sobre modalidades de golpes
-- Roteiro de ação para vítimas
+- Checklist local para preservar registros
+- Diretório de canais oficiais
+- Guias introdutórios em revisão editorial, fora do sitemap
+- Roteiro de ação com referências oficiais para Pix e São Paulo
 
 ## Stack
 
@@ -31,11 +33,12 @@ npm run dev
 npm run check
 npm run build
 npm run preview
+npm test
 ```
 
 ## Privacidade
 
-As ferramentas do MVP executam no navegador. Não introduza telemetria que registre links, contexto, respostas ou conteúdo digitado pelo usuário.
+As ferramentas executam no navegador. Não introduza telemetria que registre links, contexto, respostas ou conteúdo digitado pelo usuário. Consulte as páginas de privacidade, cookies e metodologia antes de adicionar serviços externos.
 
 ## Autoria
 
@@ -44,3 +47,7 @@ Desenvolvido por Franklin Martins, Investigador de Polícia de Classe Especial, 
 ## Licença
 
 Todos os direitos reservados até a definição separada das licenças do código, conteúdo e identidade visual.
+
+## Estado editorial
+
+O site está em beta. As fichas de modalidades de golpes ainda precisam de revisão de fontes e permanecem marcadas como `noindex`; não publique o sitemap dessas fichas antes de concluir a checagem editorial.

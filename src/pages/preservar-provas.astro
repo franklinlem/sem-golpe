@@ -1,0 +1,89 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const groups = [
+  {
+    title: 'Registre o que aconteceu',
+    items: [
+      'Anote data, horário, canal usado e uma sequência curta dos fatos.',
+      'Guarde o número, perfil, endereço de e-mail e URL envolvidos.',
+      'Salve mensagens, e-mails originais, anúncios e registros de chamadas.',
+    ],
+  },
+  {
+    title: 'Preserve pagamentos e protocolos',
+    items: [
+      'Guarde comprovantes e identificadores das transações.',
+      'Anote protocolos e horários de contato com banco ou plataforma.',
+      'Mantenha os arquivos originais sem recortar, editar ou publicar.',
+    ],
+  },
+  {
+    title: 'Cuide da sua privacidade',
+    items: [
+      'Guarde as evidências em local seguro e compartilhe apenas por canal oficial solicitado.',
+      'Não publique documentos, conversas, chaves Pix ou dados de terceiros em redes sociais.',
+      'Se houver risco ao aparelho, use outro dispositivo seguro para falar com o banco.',
+    ],
+  },
+];
+---
+
+<BaseLayout title="Checklist para preservar provas" description="Checklist local para organizar registros e comprovantes de uma fraude, sem enviar arquivos ao Sem Golpe.">
+  <div class="container breadcrumbs"><a href="/">Início</a> / <a href="/ferramentas/">Ferramentas</a> / Preservar provas</div>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Checklist privado</span>
+      <h1>Organize os registros com segurança.</h1>
+      <p class="hero-copy">Marque os itens que você já preservou. As marcações ficam somente nesta página e não são enviadas nem salvas pelo Sem Golpe.</p>
+    </div>
+  </section>
+  <section class="tool-section">
+    <div class="container">
+      <form id="evidence-form" class="tool-shell">
+        <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+        <p id="checklist-counter" role="status" aria-live="polite">0 itens marcados</p>
+        {groups.map((group, groupIndex) => (
+          <fieldset class="card checklist-group">
+            <legend>{group.title}</legend>
+            <div class="choice-grid">
+              {group.items.map((item, itemIndex) => {
+                const id = `evidence-${groupIndex}-${itemIndex}`;
+                return <label class="choice" for={id}><input id={id} type="checkbox" /><span>{item}</span></label>;
+              })}
+            </div>
+          </fieldset>
+        ))}
+        <div class="actions no-print">
+          <button class="button" id="print-checklist" type="button">Imprimir ou salvar em PDF</button>
+          <button class="button secondary" type="reset">Limpar marcações</button>
+        </div>
+      </form>
+      <div class="disclaimer" style="margin-top:22px"><strong>Não envie as provas a este site.</strong> O checklist não armazena arquivos ou dados. Siga as instruções do banco e da autoridade que atender sua ocorrência.</div>
+      <div class="source-list">
+        <h2>Fontes oficiais</h2>
+        <ul>
+          <li><a href="https://www.gov.br/mj/pt-br/acesso-a-informacao/acoes-e-programas/sofri-um-golpe-e-agora/invadiram-minha-conta/">Ministério da Justiça — invasão de conta e transações</a></li>
+          <li><a href="https://www.gov.br/pf/pt-br/assuntos/combate-a-crimes-ciberneticos">Polícia Federal — orientações para vítimas de crimes cibernéticos</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+const form = document.querySelector<HTMLFormElement>('#evidence-form')!;
+const boxes = [...form.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')];
+const counter = document.querySelector<HTMLElement>('#checklist-counter')!;
+const progress = document.querySelector<HTMLElement>('#progress-bar')!;
+
+function updateProgress() {
+  const marked = boxes.filter((box) => box.checked).length;
+  counter.textContent = `${marked} de ${boxes.length} itens marcados`;
+  progress.style.width = `${(marked / boxes.length) * 100}%`;
+}
+
+boxes.forEach((box) => box.addEventListener('change', updateProgress));
+form.addEventListener('reset', () => setTimeout(updateProgress, 0));
+document.querySelector('#print-checklist')?.addEventListener('click', () => window.print());
+</script>
