@@ -96,3 +96,9 @@ Código, imagem original, verificação de publicação e documentação reunido
 - Textos do guia, fontes, navegação e rodapé não aparecem na impressão; caixas de seleção em esquema claro preservam marcações.
 - Build sem erros e testes aprovados. Publicado sem-golpe_20261017_105000.zip.
 - Conferido no Chrome com emulação de mídia print: somente checklist e marcações visíveis. Mídia restaurada ao final.
+
+## Links contextuais oficiais — 17/10/2026
+- Transformação de HTML no build vincula menções a Pix e Banco Central à página oficial BCB Segurança no Pix, sem JavaScript no navegador.
+- Preserva fontes e destinos já vinculados, controles interativos, scripts, metadados, campos e conteúdo fornecido pelo usuário.
+- 36 menções vinculadas; build sem erros e testes de segurança estrutural/idempotência e demais ferramentas aprovados.
+- Publicado sem-golpe_20261017_105700.zip. Home, Pix/MED, guia Pix e Fui vítima retornaram 200 com links contextuais.

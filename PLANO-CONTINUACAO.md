@@ -64,3 +64,9 @@ Fontes: https://dadosabertos.bcb.gov.br/dataset/agencias ; https://www.bcb.gov.b
 - Ocultar navegação, conteúdo do guia, fontes e rodapé em impressão, sem alterar outras páginas.
 - Usar CSS de impressão específico; manter diálogo nativo para escolha da impressora/PDF.
 - Validar build e regras de impressão, publicar e sincronizar GitHub.
+
+## Links contextuais para fontes oficiais
+- Vincular menções textuais a Pix e Banco Central no HTML estático à página oficial de segurança do Pix.
+- Preservar destinos de links existentes e evitar links aninhados, controles, scripts, metadados, texto de entrada e imagens.
+- Executar transformação durante o build, sem depender de JavaScript no navegador.
+- Conferir HTML e links, publicar e sincronizar GitHub.

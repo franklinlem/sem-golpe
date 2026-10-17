@@ -8,11 +8,12 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "test": "node scripts/testar-checklist.mjs && node scripts/testar-agencias.mjs && node scripts/verificar-publicacao.mjs"
+    "test": "node scripts/testar-checklist.mjs && node scripts/testar-agencias.mjs && node scripts/verificar-publicacao.mjs && node scripts/testar-links-oficiais.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
-    "astro": "^7.4.0"
+    "astro": "^7.4.0",
+    "parse5": "^8.0.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.5",

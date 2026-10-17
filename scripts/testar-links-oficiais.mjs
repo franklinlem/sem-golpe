@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {vincularFontes,destinoPix} from './links-oficiais.mjs';
+const original='<html><head><title>Pix</title></head><body><main><p>Pix, PIX e Banco Central.</p><a href="/pix-med/">Pix e MED</a><label>Chave Pix<input value="Pix"></label><textarea>Banco Central</textarea><script>const texto="Pix";</script></main></body></html>';
+const result=vincularFontes(original);
+assert.equal(result.count,3);
+assert.equal(result.html.split(`href="${destinoPix}"`).length-1,3);
+assert.ok(result.html.includes('<a href="/pix-med/">Pix e MED</a>'));
+assert.ok(result.html.includes('<script>const texto="Pix";</script>'));
+assert.ok(result.html.includes('<textarea>Banco Central</textarea>'));
+assert.ok(result.html.includes('<title>Pix</title>'));
+assert.equal(vincularFontes(result.html).count,0);
+console.log('Links contextuais: destino oficial, links existentes, controles, scripts e idempotência aprovados.');
