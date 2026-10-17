@@ -119,3 +119,11 @@ Código, imagem original, verificação de publicação e documentação reunido
 - Build: 28 páginas, zero erros/avisos/hints. npm test incluindo compartilhamento de 14 páginas, cópia/fallback e novos destinos aprovado.
 - Publicado sem-golpe_20261017_113500.zip. Seis rotas conferidas HTTP 200 com textos/destinos.
 - Chrome: destinos OAB e denúncia, estado Link copiado e href WhatsApp conferidos, sem envio de mensagem. Layout em largura útil 375px sem rolagem horizontal; viewport restaurado.
+
+## Identidade visual — 17/10/2026
+- Artes fornecidas preservadas em public/marca; logo WebP de 600 px aplicado com dimensões explícitas no cabeçalho e rodapé.
+- Favicons ICO/32px e Apple Touch 180px ativos. Prévia Open Graph substituída por PNG 1200×630 sobre fundo escuro, com URL absoluta, tipo, dimensões e texto alternativo.
+- Maps vinculado ao Google Maps no guia de falso leilão.
+- Build: 28 páginas, zero erros/avisos. Suíte completa aprovada e metadados conferidos nas 28 páginas.
+- Produção: HTML, imagem social, logo e ícones com HTTP 200 e tipos corretos; Maps conferido no HTML publicado. Navegador desktop e móvel sem transbordamento (375px úteis).
+- A renderização final da prévia no WhatsApp não foi testada por envio de mensagem; o serviço pode manter cache da URL.

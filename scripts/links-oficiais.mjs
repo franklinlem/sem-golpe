@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 export const destinoPix='https://www.bcb.gov.br/estabilidadefinanceira/pix-seguranca';
-export const destinosOficiais={pix:destinoPix,'banco central':destinoPix,oab:'https://www.oab.org.br/',confirmadv:'https://confirmadv.oab.org.br/verify/','denúncia à oab':'https://fiscalizacao.oab.org.br/home/denuncie'};
+export const destinosOficiais={maps:"https://www.google.com/maps",pix:destinoPix,'banco central':destinoPix,oab:'https://www.oab.org.br/',confirmadv:'https://confirmadv.oab.org.br/verify/','denúncia à oab':'https://fiscalizacao.oab.org.br/home/denuncie'};
 const excluded=new Set(['a','button','script','style','textarea','input','select','option','summary','label','svg','code','pre']);
 export function vincularFontes(html){
  const doc=parse(html); let count=0;
@@ -14,7 +14,7 @@ export function vincularFontes(html){
   const children=[];
   for(const child of node.childNodes){
    if(child.nodeName==='#text'&&active&&!skip){
-    const regex=/\b(?:denúncia\s+à\s+oab|confirmadv|oab|pix|banco central)\b/gi;let last=0,match;
+    const regex=/\b(?:denúncia\s+à\s+oab|confirmadv|oab|pix|banco central|maps)\b/gi;let last=0,match;
     while((match=regex.exec(child.value))){
      if(match.index>last)children.push({nodeName:'#text',value:child.value.slice(last,match.index),parentNode:node});
      const anchor={nodeName:'a',tagName:'a',namespaceURI:'http://www.w3.org/1999/xhtml',attrs:[{name:'href',value:destinosOficiais[match[0].toLocaleLowerCase('pt-BR').replace(/\s+/g,' ')]},{name:'class',value:'official-reference'}],childNodes:[],parentNode:node};

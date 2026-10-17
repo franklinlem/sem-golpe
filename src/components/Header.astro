@@ -4,8 +4,7 @@
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
   <div class="container nav">
     <a href="/" class="brand" aria-label="Sem Golpe — início">
-      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 54 15v15c0 15-9 25-22 30C19 55 10 45 10 30V15l22-9Z" fill="#ff7a00"/><path d="m21 32 7 7 15-17" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span>Sem <b>Golpe</b></span>
+      <img class="brand-logo" src="/marca/logo-v1.webp" width="180" height="60" alt="Sem Golpe" fetchpriority="high" />
     </a>
     <button class="menu-button" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <nav id="nav-links" class="nav-links" aria-label="Navegação principal">
@@ -22,3 +21,4 @@
   const nav=document.querySelector('#nav-links');
   button?.addEventListener('click',()=>{const open=nav?.classList.toggle('open')??false;button.setAttribute('aria-expanded',String(open));});
 </script>
+

@@ -13,3 +13,5 @@
 .official-reference{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em}.official-reference:hover{color:var(--orange-light)}
 
 .share-block{margin-top:24px;max-width:820px}.share-block>p{font-size:.95rem;color:var(--muted);margin:0 0 10px}.share-block .actions{margin-top:10px}.share-status:empty{display:none}.share-status{margin-top:10px!important}.share-block label:not([hidden]){display:grid;gap:8px;margin-top:12px}.share-block input{width:100%;padding:10px;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text)}
+
+.brand-logo{display:block;width:180px;height:60px;object-fit:contain;flex-shrink:0}.brand{flex-shrink:0}

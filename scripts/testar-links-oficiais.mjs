@@ -16,3 +16,8 @@ assert.ok(oab.html.includes('href="https://www.oab.org.br/"'));
 assert.ok(oab.html.includes('href="https://confirmadv.oab.org.br/verify/"'));
 assert.ok(oab.html.includes('href="https://fiscalizacao.oab.org.br/home/denuncie"'));
 assert.equal(vincularFontes(oab.html).count,0);
+
+const maps=vincularFontes('<main><p>Confira no Maps e Street View.</p></main>');
+assert.equal(maps.count,1);
+assert.ok(maps.html.includes('href="https://www.google.com/maps"'));
+assert.equal(vincularFontes(maps.html).count,0);

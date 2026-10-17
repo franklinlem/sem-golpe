@@ -85,3 +85,9 @@ Fontes: https://dadosabertos.bcb.gov.br/dataset/agencias ; https://www.bcb.gov.b
 - Leilão: Maps/Street View como verificação complementar de endereço, alertando para imagens antigas e cópia de endereço de local real.
 - Falso trader: perfis falsos, promessa sem risco e avatares IA, sem generalizar observações de poucos casos sobre escolaridade como dado estatístico.
 - Build, testes de destinos/compartilhamento, validação em produção, publicação e commit.
+
+## Identidade visual e Maps — 17/10/2026
+- Preservar as artes fornecidas e aplicar logo otimizado no cabeçalho/rodapé com dimensões explícitas e layout responsivo.
+- Adicionar favicon ICO/PNG e Apple Touch Icon; substituir prévia SVG por PNG 1200×630 com a marca sobre fundo escuro para compartilhamento.
+- Incluir metadados de imagem absoluta, dimensões, tipo e descrição em todas as páginas.
+- Vincular Maps ao Google Maps, preservando links existentes; validar build, testes e apresentação, publicar e sincronizar GitHub.
