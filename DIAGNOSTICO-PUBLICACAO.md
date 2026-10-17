@@ -102,3 +102,11 @@ Código, imagem original, verificação de publicação e documentação reunido
 - Preserva fontes e destinos já vinculados, controles interativos, scripts, metadados, campos e conteúdo fornecido pelo usuário.
 - 36 menções vinculadas; build sem erros e testes de segurança estrutural/idempotência e demais ferramentas aprovados.
 - Publicado sem-golpe_20261017_105700.zip. Home, Pix/MED, guia Pix e Fui vítima retornaram 200 com links contextuais.
+
+## Segunda rodada de guias — publicada em 17/10/2026
+- Ampliados falso advogado, intermediário de veículo, falso leilão e falso trader, com exemplos fictícios, orientações, perguntas, fontes e datas.
+- Conteúdo em revisoes-negociacoes.json, integrado ao template e aos links oficiais. Oito modalidades agora têm revisão ampliada; cinco continuam pendentes.
+- Fonte de notícia de leilão temporariamente restrita substituída pela página pública de serviço da Receita Federal; regras específicas não generalizadas.
+- Build: 28 páginas, zero erros/avisos/hints, 38 menções com links oficiais. npm test aprovado após build concluído; tentativa anterior em paralelo ao build falhou porque dist estava sendo recriado, sem defeito funcional.
+- Pacote sem-golpe_20261017_110300.zip publicado. Quatro rotas responderam 200 com fontes e perguntas.
+- Chrome: guia de falso advogado, expansão de pergunta e resposta visível conferidos; sem rolagem horizontal na largura observada de 645px.

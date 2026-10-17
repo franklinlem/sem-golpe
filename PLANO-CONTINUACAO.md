@@ -70,3 +70,9 @@ Fontes: https://dadosabertos.bcb.gov.br/dataset/agencias ; https://www.bcb.gov.b
 - Preservar destinos de links existentes e evitar links aninhados, controles, scripts, metadados, texto de entrada e imagens.
 - Executar transformação durante o build, sem depender de JavaScript no navegador.
 - Conferir HTML e links, publicar e sincronizar GitHub.
+
+## Segunda rodada de guias — 17/10/2026
+- Ampliar falso advogado, intermediário de veículo, falso leilão e falso trader.
+- Conferir fontes primárias OAB, Polícia Civil, Junta Comercial e CVM; não afirmar legitimidade por cadastro isolado.
+- Acrescentar verificação independente, roteiro após pagamento, preservação de registros e perguntas frequentes.
+- Reutilizar fontes/datas e navegação existentes, validar build/testes, publicar e sincronizar GitHub.

@@ -1,0 +1,202 @@
+{
+  "falso-advogado": {
+    "sections": [
+      {
+        "title": "Dados verdadeiros podem aparecer em uma cobrança falsa",
+        "paragraphs": [
+          "O contato pode mencionar o número de um processo, o nome do profissional e uma suposta liberação de valores. Esses detalhes não confirmam a identidade de quem está falando. A OAB alerta para abordagens que imitam advogados por aplicativos de mensagens e redes sociais.",
+          "Exemplo fictício: uma mensagem anuncia que você ganhou uma ação e precisa pagar uma taxa em poucos minutos. Antes de discutir o valor ou abrir documentos, interrompa a conversa e procure o advogado pelo contato já utilizado anteriormente."
+        ]
+      },
+      {
+        "title": "Confirme pessoa, processo e cobrança separadamente",
+        "items": [
+          "Fale com o profissional ou escritório pelo telefone ou e-mail já conhecido. Não aceite o novo contato como única via de confirmação.",
+          "Consulte a inscrição pelos serviços oficiais da OAB. O ConfirmADV é uma ferramenta complementar; conhecer o nome e a inscrição de um advogado real não prova que a mensagem veio dele.",
+          "Confira qualquer alegação sobre o processo no canal oficial do tribunal ou com seu advogado. Não use links ou comprovantes de liberação enviados pelo desconhecido.",
+          "Peça esclarecimento sobre a finalidade da cobrança e o beneficiário. Não pague uma taxa apenas porque foi apresentada como urgente."
+        ]
+      },
+      {
+        "title": "Se já houve transferência",
+        "paragraphs": [
+          "Acione seu banco imediatamente, guarde o protocolo e informe o meio de pagamento. Para Pix, consulte o guia Pix/MED; para outros meios, peça o procedimento correspondente.",
+          "Separe mensagens, números, documentos recebidos e comprovantes sem alterar os originais. Avise o profissional cuja identidade foi usada e registre a ocorrência. A denúncia à OAB é complementar e não substitui o atendimento bancário ou policial."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "O nome está no cadastro da OAB. Posso pagar?",
+        "answer": "O cadastro ajuda a verificar a existência do profissional, mas os dados podem ter sido copiados. Confirme a solicitação com o advogado por um canal independente antes de autorizar qualquer pagamento."
+      },
+      {
+        "question": "Toda cobrança de advogado por mensagem é falsa?",
+        "answer": "Não. O sinal de alerta é a solicitação que você não consegue confirmar, especialmente com pressão, novo contato e beneficiário inesperado. Não é necessário acusar alguém: pare e esclareça com o profissional verdadeiro."
+      }
+    ],
+    "sources": [
+      {
+        "title": "OAB Nacional — Campanha e plataforma contra o falso advogado",
+        "url": "https://www.oab.org.br/noticia/63063/oab-lanca-campanha-nacional-e-plataforma-de-verificacao-contra-golpe-do-falso-advogado"
+      },
+      {
+        "title": "OAB Paraná — Verificação por canal conhecido e ConfirmADV",
+        "url": "https://portal.oabpr.org.br/golpe-do-falso-advogado"
+      },
+      {
+        "title": "OAB — ConfirmADV oficial",
+        "url": "https://confirmadv.oab.org.br/verify/"
+      }
+    ]
+  },
+  "intermediario-veiculo": {
+    "sections": [
+      {
+        "title": "Comprador e vendedor podem ser enganados ao mesmo tempo",
+        "paragraphs": [
+          "O terceiro controla as versões da negociação: oferece um veículo anunciado por outra pessoa e convence as partes de que atua como parente, representante ou parceiro. A Polícia Civil registra essa modalidade em negociações originadas em plataformas digitais.",
+          "Exemplo fictício: o comprador acredita que está negociando por um preço menor; o proprietário espera receber outro valor. O intermediário pede que ninguém fale sobre preço durante a visita e indica uma conta que não é a do proprietário."
+        ]
+      },
+      {
+        "title": "Coloque as versões na mesma conversa",
+        "items": [
+          "Antes de pagar ou entregar o veículo, confirme diretamente com o proprietário quem vende, por qual valor e a quem será feito o pagamento.",
+          "Recuse pedidos de segredo sobre preço, titularidade ou suposto parentesco. Uma visita ao veículo não esclarece, sozinha, quem receberá o dinheiro.",
+          "Confira identificação, documentos do veículo e poderes de representação pelos canais oficiais e com apoio profissional quando necessário.",
+          "O vendedor deve conferir a entrada efetiva do valor no próprio banco; uma imagem de comprovante não basta para confirmar o recebimento."
+        ]
+      },
+      {
+        "title": "Se o pagamento foi feito e as versões não coincidem",
+        "paragraphs": [
+          "Interrompa novos pagamentos e não tente resolver a divergência por ameaça ou retirada forçada do veículo. Comprador e vendedor podem precisar apresentar os respectivos registros do contato com o intermediário.",
+          "Avise o banco e registre a ocorrência. Preserve anúncio, URL, mensagens, dados informados para pagamento e comprovantes. Questões de entrega, propriedade ou responsabilidade exigem análise do caso; este guia não determina a quem pertence o bem ou quem deve indenizar."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Ver o carro e encontrar o proprietário elimina o risco?",
+        "answer": "Não. O golpe pode usar uma visita real para tornar a negociação convincente, enquanto cada parte recebeu uma história diferente. Confirme preço, destinatário do pagamento e representação diretamente."
+      },
+      {
+        "question": "A conta de um terceiro significa necessariamente fraude?",
+        "answer": "Não é uma conclusão automática, mas exige esclarecimento antes do pagamento. Não transfira apenas com a autorização verbal de quem está intermediando uma negociação que você não conseguiu conferir."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Polícia Civil de Goiás — Investigação do golpe do falso intermediário",
+        "url": "https://goias.gov.br/policiacivil/pcgo-e-pcmt-prendem-mae-e-filho-por-golpe-do-falso-intermediario-que-causou-prejuizo-de-r-20-mil/"
+      },
+      {
+        "title": "Agência Goiás — Dinâmica do golpe em negociações online",
+        "url": "https://agencia.go.gov.br/policia-prende-15-por-golpe-do-intermediario-na-web/"
+      }
+    ]
+  },
+  "falso-leilao": {
+    "sections": [
+      {
+        "title": "Nome real de leiloeiro não autentica um site",
+        "paragraphs": [
+          "Uma página pode copiar fotografias, identificação de leiloeiro e aparência de um edital. O registro de um profissional existente deve ser conferido separadamente do endereço eletrônico e do leilão anunciado.",
+          "Exemplo fictício: o visitante recebe uma carta de arremate e uma cobrança urgente antes de confirmar o lote no canal oficial. O documento é convincente, mas foi produzido pelo mesmo contato cuja identidade está em dúvida."
+        ]
+      },
+      {
+        "title": "Confira a origem antes do lance e do pagamento",
+        "items": [
+          "Parta do site oficial do órgão ou instituição que anuncia o leilão. Confira edital, lote, datas e o endereço da plataforma indicado ali.",
+          "Verifique a situação do leiloeiro na Junta Comercial correspondente e procure um contato independente. Não use somente o cadastro ou telefone que o próprio site suspeito exibe.",
+          "Leia no edital como funciona o pagamento e confirme os dados com o responsável oficial. Não aceite uma mudança de beneficiário enviada apenas por mensagem.",
+          "HTTPS, domínio registrado e aparência profissional não garantem legitimidade. O verificador de links do Sem Golpe não aprova leilões."
+        ]
+      },
+      {
+        "title": "A regra de pagamento depende de quem promove o leilão",
+        "paragraphs": [
+          "A Receita Federal informa que seus leilões usam DARF e alerta contra transferências para terceiros. Essa orientação é específica dos leilões da Receita; não deve ser aplicada como regra universal a todo leilão público ou privado.",
+          "Se você já pagou, não faça depósitos adicionais para frete, liberação ou suposto reembolso antes de confirmar a situação. Avise o banco e preserve anúncio, URL, edital recebido, carta de arremate, conversas e comprovantes para o registro policial."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "A matrícula do leiloeiro existe. Isso resolve a dúvida?",
+        "answer": "Não. A identidade de um profissional real pode ter sido copiada. Confirme se ele reconhece o site, o edital e o lote por um contato obtido independentemente."
+      },
+      {
+        "question": "O site não aparece numa lista de sites falsos. É seguro?",
+        "answer": "A ausência numa lista não equivale a uma aprovação. Sites novos ou ainda não denunciados podem não constar. Use o edital e o canal oficial da instituição como ponto de partida."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Receita Federal — Leilões e Manual do Licitante",
+        "url": "https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/leilao"
+      },
+      {
+        "title": "CAIXA — Leilões de bens móveis e cuidados na verificação",
+        "url": "https://www.caixa.gov.br/leilao-bens-moveis/Paginas/default.aspx"
+      },
+      {
+        "title": "Polícia Civil RS — Investigação de falsos leilões online",
+        "url": "https://pc.rs.gov.br/operacao-mira-grupo-de-sp-especializado-no-golpe-do-falso-leilao"
+      }
+    ]
+  },
+  "falso-trader": {
+    "sections": [
+      {
+        "title": "Um saldo no painel pode não representar dinheiro disponível",
+        "paragraphs": [
+          "Perfis, grupos e plataformas podem exibir resultados sem demonstrar onde os recursos estão custodiados ou se há possibilidade real de saque. A CVM alerta para promessas de rentabilidade extraordinária e atuações irregulares que imitam investimentos.",
+          "Exemplo fictício: um painel mostra lucro crescente, mas o saque depende de novo depósito para imposto, seguro ou ativação. A cobrança é apresentada como a última etapa e pode se repetir. Não envie mais dinheiro para tentar recuperar o anterior."
+        ]
+      },
+      {
+        "title": "Verifique pessoa, oferta e canal separadamente",
+        "items": [
+          "Procure registros e alertas no site oficial da CVM quando a atividade ou o produto estiver no mercado de valores mobiliários. Nem toda atividade financeira tem o mesmo regulador.",
+          "Confirme os canais de contato do participante cadastrado. Criminosos podem usar o nome de uma empresa real sem vínculo com ela.",
+          "Desconfie de garantia de lucro e de percentuais fixos associados a operações de risco. Capturas de resultados e depoimentos não são auditoria.",
+          "Não instale aplicativos de acesso remoto nem entregue senhas ou códigos para que alguém opere uma conta em seu nome."
+        ]
+      },
+      {
+        "title": "Se o saque foi bloqueado",
+        "paragraphs": [
+          "Pare novos aportes e cobranças que você não conseguiu verificar. Guarde o endereço da plataforma, anúncios, perfil do contato, condições oferecidas, pedidos de saque e comprovantes. Evite fornecer documentos adicionais ao contato suspeito.",
+          "Comunique o banco pelo meio de pagamento utilizado e registre a ocorrência. Quando houver possível atuação irregular no mercado de valores mobiliários, consulte também os canais de atendimento e alertas da CVM. Não pague uma empresa desconhecida que promete recuperar o investimento mediante taxa antecipada."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "Um primeiro saque pequeno prova que a plataforma é legítima?",
+        "answer": "Não. Uma operação anterior, um depoimento ou uma tela de lucro não substituem a verificação da oferta, do responsável e da custódia. Não aumente o aporte apenas porque uma retirada foi permitida."
+      },
+      {
+        "question": "Uma perda de investimento é sempre golpe?",
+        "answer": "Não. Investimentos podem perder valor e operações podem ter regras de resgate. A suspeita de fraude depende do contexto, como identidade falsa, oferta irregular ou cobranças não verificáveis. Preserve os fatos sem apresentar uma conclusão que ainda não foi apurada."
+      }
+    ],
+    "sources": [
+      {
+        "title": "CVM — Ofertas e atuações irregulares",
+        "url": "https://www.gov.br/cvm/pt-br/assuntos/protecao/alertas/ofertas-atuacoes-irregulares"
+      },
+      {
+        "title": "Portal do Investidor / CVM — Robôs e promessas de rentabilidade",
+        "url": "https://www.gov.br/investidor/pt-br/investir/como-investir/profissionais-do-mercado/robos-de-investimentos"
+      },
+      {
+        "title": "CVM — Cuidados com ofertas de criptoativos e forex",
+        "url": "https://www.gov.br/cvm/pt-br/assuntos/protecao/mercado-forex/criptoativos-forex"
+      }
+    ]
+  }
+}

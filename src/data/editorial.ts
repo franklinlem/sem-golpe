@@ -1,3 +1,4 @@
+import negociacoes from './revisoes-negociacoes.json';
 export type Fonte = {title:string;url:string};
 export type Secao = {title:string;paragraphs?:string[];items?:string[]};
 export type Revisao = {sections:Secao[];faq?:{question:string;answer:string}[];sources:Fonte[]};
@@ -36,3 +37,5 @@ export const revisoes:Record<string,Revisao>={
  {title:'A conta original pode continuar em aberto',paragraphs:['Se já pagou, comunique imediatamente o banco e a prestadora por canais oficiais. Peça orientação sobre a contestação e sobre a situação da conta original; guarde os protocolos.','Organize o e-mail recebido, o boleto, o comprovante e a cobrança oficial obtida separadamente. Não altere os arquivos originais. Não faça um segundo pagamento sob pressão; esclareça a cobrança com a empresa.']}
  ],faq:[{question:'Posso pedir MED para um boleto?',answer:'O MED é exclusivo do Pix. Confira no comprovante qual foi o meio de pagamento efetivamente utilizado. Se houve Pix, conteste o Pix; se houve boleto, peça ao banco orientação para esse pagamento.'},{question:'O comprovante prova que a conta da empresa foi quitada?',answer:'Ele comprova os dados da operação realizada, mas o pagamento pode ter ido a outro beneficiário. Confirme a quitação no canal oficial da prestadora e preserve os dois registros.'}],sources:[fontes.boleto,fontes.pix,fontes.cert]}
 };
+
+Object.assign(revisoes, negociacoes);

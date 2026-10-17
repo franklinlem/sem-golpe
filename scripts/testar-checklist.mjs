@@ -10,7 +10,7 @@ const marked=exportarChecklist(new Set(['conversas','pagamentos','dado-nao-previ
 assert.equal(marked.split('\n').filter(line=>line.startsWith('[x]')).length,2);
 assert.ok(!marked.includes('dado-nao-previsto'));
 assert.match(marked,/Não substitui perícia/);
-for(const slug of ['pix','falsa-central-bancaria','falso-boleto','whatsapp-falso-parente']){
+for(const slug of ['pix','falsa-central-bancaria','falso-boleto','whatsapp-falso-parente','falso-advogado','intermediario-veiculo','falso-leilao','falso-trader']){
  const html=fs.readFileSync(`dist/golpes/${slug}/index.html`,'utf8');
  assert.match(html,/Fontes e acompanhamento editorial/);
  assert.match(html,/2026-10-17/);
