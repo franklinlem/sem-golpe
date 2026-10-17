@@ -58,3 +58,9 @@ Fontes: https://dadosabertos.bcb.gov.br/dataset/agencias ; https://www.bcb.gov.b
 - Canais: banco primeiro para interrupção financeira, registro policial conforme local/tipo, Delegacia Digital SP explicitamente estadual, consumidor.gov/BC para finalidades distintas. Emergência 190 não substituída por formulário.
 - Validar links internos, coerência de fontes e datas, build, ferramentas existentes e layout desktop/celular. Publicar e sincronizar GitHub.
 - Fontes pesquisadas: BCB Segurança no Pix e FAQ golpes; Febraban falso boleto e falsa central; Anatel golpes atuais; CERT.br fascículo golpes; Delegacia Digital SP e dúvidas; consumidor.gov.br e canal de reclamações BCB.
+
+## Correção da impressão do checklist
+- Limitar impressão da página de preservação ao checklist, com título, instrução breve, marcações e endereço de origem.
+- Ocultar navegação, conteúdo do guia, fontes e rodapé em impressão, sem alterar outras páginas.
+- Usar CSS de impressão específico; manter diálogo nativo para escolha da impressora/PDF.
+- Validar build e regras de impressão, publicar e sincronizar GitHub.

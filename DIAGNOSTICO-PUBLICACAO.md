@@ -90,3 +90,9 @@ Código, imagem original, verificação de publicação e documentação reunido
 - Chrome: duas marcações atualizam contador para 2/8; exportação TXT confirmada nos arquivos baixados (oito itens, com e sem duas marcações). Monitoramento de evento de download pela automação expirou, mas os arquivos reais foram baixados e conferidos.
 - Layout do checklist e canais oficiais conferido em largura de celular, sem rolagem horizontal; viewport restaurado ao final.
 - Revisão de fontes não é apresentada como aprovação jurídica ou institucional. Checagem prevista para 17/11/2026 não é execução automática.
+
+## Impressão do checklist corrigida — 17/10/2026
+- CSS de impressão específico em preservar-provas limita saída ao formulário do checklist, título, orientação curta e origem.
+- Textos do guia, fontes, navegação e rodapé não aparecem na impressão; caixas de seleção em esquema claro preservam marcações.
+- Build sem erros e testes aprovados. Publicado sem-golpe_20261017_105000.zip.
+- Conferido no Chrome com emulação de mídia print: somente checklist e marcações visíveis. Mídia restaurada ao final.
