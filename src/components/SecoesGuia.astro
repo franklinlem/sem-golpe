@@ -1,0 +1,6 @@
+---
+import type {Revisao} from '@/data/editorial';
+interface Props {content:Revisao;}
+const {content}=Astro.props;
+---
+<section><div class="container prose">{content.sections.map(section=><section class="guide-section"><h2>{section.title}</h2>{section.paragraphs?.map(paragraph=><p>{paragraph}</p>)}{section.items&&<ul>{section.items.map(item=><li>{item}</li>)}</ul>}</section>)}{content.faq&&<div class="guide-faq"><h2>Perguntas frequentes</h2>{content.faq.map(item=><details><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div>}</div></section>

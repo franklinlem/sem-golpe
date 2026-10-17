@@ -80,3 +80,13 @@ Código, imagem original, verificação de publicação e documentação reunido
 - Base derivada sob ODbL com atribuição, fontes, documentação de cobertura e script de atualização reproduzível.
 - Testes de normalização, zeros, dígito após hífen, busca exata, ausências e integridade dos 461 arquivos aprovados; build sem erros/avisos, 25 páginas, links internos aprovados.
 - Pacote sem-golpe_20261017_101000.zip publicado via Hostinger. Chrome: banco 104, agência 02816-0 exibiu Barra Velha/SC, Rua Gov. Celso Ramos, 381, CEP 88390-000, conforme a fonte.
+
+## Guias de resposta e revisão editorial — publicados em 17/10/2026
+- Ampliados Pix, falsa central, falso boleto e falso parente com fontes, dúvidas, autoria e datas de conferência.
+- Criados /pix-med/, /preservar-provas/ e /onde-denunciar/, integrados a Fui vítima, ferramentas e rodapé.
+- Checklist com oito itens locais, TXT e impressão, sem dados do caso. Privacidade atualizada.
+- Build sem erros/avisos/hints: 28 páginas. Testes de exportação, fontes/datas e links, agências e DNS aprovados. CI passa a executar npm test após o build.
+- Publicado sem-golpe_20261017_103600.zip; sete rotas revisadas responderam HTTP 200 e mostram fontes/datas corretas.
+- Chrome: duas marcações atualizam contador para 2/8; exportação TXT confirmada nos arquivos baixados (oito itens, com e sem duas marcações). Monitoramento de evento de download pela automação expirou, mas os arquivos reais foram baixados e conferidos.
+- Layout do checklist e canais oficiais conferido em largura de celular, sem rolagem horizontal; viewport restaurado ao final.
+- Revisão de fontes não é apresentada como aprovação jurídica ou institucional. Checagem prevista para 17/11/2026 não é execução automática.

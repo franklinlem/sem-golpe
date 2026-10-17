@@ -1,0 +1,7 @@
+---
+import {checked,nextCheck,type Fonte} from '@/data/editorial';
+interface Props {sources:Fonte[];}
+const {sources}=Astro.props;
+const display=(date:string)=>new Date(date+'T12:00:00Z').toLocaleDateString('pt-BR',{timeZone:'America/Sao_Paulo'});
+---
+<section class="editorial-sources"><div class="container prose"><h2>Fontes e acompanhamento editorial</h2><ul>{sources.map(source=><li><a href={source.url}>{source.title}</a></li>)}</ul><p>Responsável editorial: <a href="/sobre/">Franklin Martins</a>.</p><p>Fontes conferidas em <time datetime={checked}>{display(checked)}</time>. Próxima checagem prevista: <time datetime={nextCheck}>{display(nextCheck)}</time>.</p><p class="editorial-note">A conferência das fontes não representa aprovação jurídica, bancária ou institucional. Procedimentos podem mudar; confirme as instruções no canal oficial antes de agir.</p></div></section>

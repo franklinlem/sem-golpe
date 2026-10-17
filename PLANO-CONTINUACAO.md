@@ -48,3 +48,13 @@ Retomar o código existente, validar a versão inicial e preparar publicação e
 6. Adicionar ferramentas/home, atualizar privacidade e README, testar códigos repetidos entre bancos, zeros, hífen, ausências, falhas e links. Build, deploy, verificação em produção e commit.
 7. Criar script reproduzível para atualizar a base; atualização automática requer monitorar mudanças de schema e cobertura, sem publicar snapshot vazio.
 Fontes: https://dadosabertos.bcb.gov.br/dataset/agencias ; https://www.bcb.gov.br/content/estabilidadefinanceira/str1/ParticipantesSTR.csv
+
+## Revisão editorial e guias de resposta — 17/10/2026
+- Revisar Pix/MED, falsa central bancária, falso boleto e WhatsApp/falso parente com fontes primárias verificadas.
+- Criar estrutura compartilhada de conteúdo: seções práticas, perguntas frequentes, fontes, responsável editorial, data de verificação das fontes e próxima checagem prevista. Não declarar revisão jurídica ou aprovação institucional inexistentes.
+- Criar /pix-med/, /preservar-provas/ e /onde-denunciar/, com navegação recíproca e integração a Fui vítima.
+- Pix: contestação pelo app, prazo de até 80 dias conforme BCB, limites do MED; não aplicar MED a boleto/TED nem prometer recuperação.
+- Provas: checklist educativo local sem uploads, sem apagar originais, exposição pública ou fornecimento de material sensível ao portal; orientações não equivalem a perícia.
+- Canais: banco primeiro para interrupção financeira, registro policial conforme local/tipo, Delegacia Digital SP explicitamente estadual, consumidor.gov/BC para finalidades distintas. Emergência 190 não substituída por formulário.
+- Validar links internos, coerência de fontes e datas, build, ferramentas existentes e layout desktop/celular. Publicar e sincronizar GitHub.
+- Fontes pesquisadas: BCB Segurança no Pix e FAQ golpes; Febraban falso boleto e falsa central; Anatel golpes atuais; CERT.br fascículo golpes; Delegacia Digital SP e dúvidas; consumidor.gov.br e canal de reclamações BCB.

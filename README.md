@@ -50,3 +50,7 @@ Todos os direitos reservados até a definição separada das licenças do códig
 ## Base de agências
 
 Atualize com `python3 scripts/atualizar-agencias.py`, confira cobertura/data, execute o build e publique o novo artefato. A consulta não é em tempo real e não substitui confirmação com o banco. Dados derivados do Banco Central sob ODbL 1.0; origem e licença em `public/dados/agencias/LEIA-ME.md`.
+
+## Guias de resposta
+
+Pix/MED, preservação de provas e canais oficiais têm rotas próprias. As revisões de Pix, falsa central, falso boleto e falso parente incluem fontes, perguntas frequentes e data de conferência. A data não representa aprovação jurídica/institucional. O checklist de provas permite exportação local de itens, sem dados do caso.
