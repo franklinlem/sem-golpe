@@ -1,0 +1,46 @@
+# Sem Golpe
+
+Portal educativo brasileiro sobre prevenção a golpes e segurança digital, planejado para `semgolpe.franklem.com`.
+
+## Aviso importante
+
+Conteúdo educativo. O projeto não substitui polícia, banco, advogado ou atendimento de emergência e não recebe ocorrências, denúncias ou provas.
+
+## Recursos
+
+- Identificador educativo de sinais de risco
+- Verificador local de links
+- Gerador de prompt seguro para IA
+- Guias sobre modalidades de golpes
+- Roteiro de ação para vítimas
+
+## Stack
+
+Astro, TypeScript e CSS. A saída é totalmente estática e adequada à hospedagem compartilhada da Hostinger.
+
+## Desenvolvimento
+
+```bash
+npm install
+npm run dev
+```
+
+## Validação e build
+
+```bash
+npm run check
+npm run build
+npm run preview
+```
+
+## Privacidade
+
+As ferramentas do MVP executam no navegador. Não introduza telemetria que registre links, contexto, respostas ou conteúdo digitado pelo usuário.
+
+## Autoria
+
+Desenvolvido por Franklin Martins, Investigador de Polícia de Classe Especial, com 25 anos de experiência na Polícia Civil do Estado de São Paulo. Projeto pessoal e independente.
+
+## Licença
+
+Todos os direitos reservados até a definição separada das licenças do código, conteúdo e identidade visual.
