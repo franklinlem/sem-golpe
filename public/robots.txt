@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /busca/
+Disallow: /api/
+
+Sitemap: https://semgolpe.franklem.com/sitemap-index.xml

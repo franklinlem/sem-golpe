@@ -1,0 +1,4 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'; import {golpes} from '@/data/golpes';
+---
+<BaseLayout title="Tipos de golpe" description="Guias educativos sobre golpes digitais, bancários, em veículos, leilões, relacionamentos e redes sociais."><div class="container breadcrumbs"><a href="/">Início</a> / Tipos de golpe</div><section class="page-hero"><div class="container"><span class="eyebrow">Biblioteca de prevenção</span><h1>Conheça os <span class="orange">tipos de golpe</span></h1><p class="hero-copy">Cada guia apresenta sinais, dinâmica da fraude e ações seguras. Novos padrões serão adicionados após revisão de fontes.</p></div></section><section style="padding-top:20px"><div class="container grid">{golpes.map(g=><a class="card card-link" href={`/golpes/${g.slug}/`}><div class="card-icon">{g.icon}</div><span class="tag">{g.accent}</span><h3>{g.title}</h3><p>{g.short}</p><span class="orange">Abrir guia →</span></a>)}</div></section></BaseLayout>
