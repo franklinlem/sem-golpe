@@ -20,3 +20,11 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+      - run: npm run validate:build
+      - run: node scripts/package-release.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sem-golpe-static-${{ github.sha }}
+          path: release/
+          retention-days: 14
+

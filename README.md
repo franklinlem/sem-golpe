@@ -51,3 +51,10 @@ Todos os direitos reservados até a definição separada das licenças do códig
 ## Estado editorial
 
 O site está em beta. As fichas de modalidades de golpes ainda precisam de revisão de fontes e permanecem marcadas como `noindex`; não publique o sitemap dessas fichas antes de concluir a checagem editorial.
+
+
+## Pacote de publicação
+
+Execute `npm run release` em Linux ou no GitHub Actions. O comando roda os testes, gera a build, verifica links internos e arquivos obrigatórios e cria `release/sem-golpe.tar.gz` e `release/SHA256SUMS`. O arquivo contém somente a saída estática, com `index.html` e `.htaccess` na raiz. A CI disponibiliza o pacote como artefato por 14 dias.
+
+Antes de publicar, confirme no hPanel a pasta exclusiva de `semgolpe.franklem.com` e faça backup dos arquivos existentes. Extraia o pacote nessa pasta, sem alterar outros sites. Confira home, ferramentas, `/404.html`, `/robots.txt`, `/sitemap-index.xml` e `/version.json`. Preserve o pacote anterior para rollback. A geração do pacote não executa deploy.
