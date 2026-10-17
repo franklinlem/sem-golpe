@@ -6,8 +6,11 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
+    "test": "node --test",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "validate:build": "node scripts/validate-build.mjs",
+    "release": "npm test && npm run build && npm run validate:build && node scripts/package-release.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",

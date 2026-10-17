@@ -1,0 +1,63 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Onde buscar ajuda e registrar ocorrência" description="Encontre o canal adequado para falar com seu banco, registrar uma ocorrência e reclamar sobre uma instituição financeira.">
+  <div class="container breadcrumbs"><a href="/">Início</a> / Onde buscar ajuda</div>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Canais oficiais</span>
+      <h1>Procure a instituição certa pelo canal oficial.</h1>
+      <p class="hero-copy">O Sem Golpe não recebe denúncias nem registra ocorrências. Abra os canais abaixo digitando o endereço ou usando um link oficial.</p>
+    </div>
+  </section>
+  <section class="tool-section">
+    <div class="container grid">
+      <article class="card">
+        <span class="badge">Pagamento ou conta</span>
+        <h2>Seu banco ou instituição</h2>
+        <p>Use o aplicativo oficial, o telefone impresso no cartão ou uma agência. Relate a fraude, conteste movimentações desconhecidas e peça o bloqueio que se aplicar ao caso.</p>
+        <p>Se foi um Pix enviado por causa de fraude, peça ao seu banco a abertura do MED o mais rápido possível. O pedido pode ser feito em até 80 dias, mas o MED não garante devolução.</p>
+        <a class="button secondary" href="https://www.bcb.gov.br/estabilidadefinanceira/pix-seguranca">Orientação do Banco Central sobre Pix ↗</a>
+      </article>
+      <article class="card">
+        <span class="badge">Fato ocorrido em São Paulo</span>
+        <h2>Polícia Civil</h2>
+        <p>A Delegacia Digital de São Paulo aceita comunicações de fraude e estelionato para fatos ocorridos no estado. Fora de São Paulo, procure a Polícia Civil do estado onde o fato aconteceu.</p>
+        <a class="button" href="https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia">Abrir Delegacia Digital de SP ↗</a>
+        <p><strong>Risco imediato à integridade física:</strong> Polícia Militar, 190.</p>
+      </article>
+      <article class="card">
+        <span class="badge">Problema com instituição financeira</span>
+        <h2>Reclamação ao Banco Central</h2>
+        <p>Para contestar uma relação de consumo, tente primeiro o SAC e a ouvidoria da instituição. O Banco Central encaminha a demanda à instituição, mas não decide casos individuais; a resposta pode levar até 10 dias úteis.</p>
+        <a class="button secondary" href="https://www.bcb.gov.br/acessoinformacao/registrar_reclamacao">Consultar como registrar uma reclamação ↗</a>
+      </article>
+    </div>
+  </section>
+  <section>
+    <div class="container two-col">
+      <article class="card">
+        <h2>Antes de relatar</h2>
+        <ul class="checklist">
+          <li>Organize horários, contatos, comprovantes e protocolos.</li>
+          <li>Não envie senha, código de autenticação ou acesso remoto.</li>
+          <li>Confirme que o endereço do site pertence ao órgão ou instituição.</li>
+        </ul>
+        <a class="button secondary" href="/preservar-provas/">Abrir checklist de provas</a>
+      </article>
+      <aside class="disclaimer"><strong>Este portal é independente.</strong> A Polícia Civil investiga ocorrências registradas nos canais oficiais. Não use o e-mail editorial para denúncias, pedidos de investigação, documentos ou comprovantes.</aside>
+    </div>
+  </section>
+  <section class="source-list">
+    <div class="container">
+      <h2>Fontes oficiais consultadas</h2>
+      <ul>
+        <li><a href="https://www.bcb.gov.br/meubc/faqs/p/o-que-e-e-como-funciona-o-mecanismo-especial-de-devolucao-med">Banco Central — como funciona o MED</a></li>
+        <li><a href="https://www.bcb.gov.br/acessoinformacao/registrar_reclamacao">Banco Central — reclamação contra instituição financeira</a></li>
+        <li><a href="https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/pages/comunicar-ocorrencia">Polícia Civil de SP — Delegacia Digital</a></li>
+        <li><a href="https://www.gov.br/mj/pt-br/acesso-a-informacao/acoes-e-programas/sofri-um-golpe-e-agora/tive-perdas-financeiras">Ministério da Justiça — perdas financeiras</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,6 +1,22 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'; import {golpes,type Golpe} from '@/data/golpes';
-export function getStaticPaths(){return golpes.map(g=>({params:{slug:g.slug},props:{golpe:g}}));}
-const {golpe}=Astro.props as {golpe:Golpe};
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { golpes, type Golpe } from '@/data/golpes';
+
+export function getStaticPaths() {
+  return golpes.map((golpe) => ({ params: { slug: golpe.slug }, props: { golpe } }));
+}
+
+const { golpe } = Astro.props as { golpe: Golpe };
 ---
-<BaseLayout title={golpe.title} description={`${golpe.short} Veja sinais de alerta e saiba como agir.`}><div class="container breadcrumbs"><a href="/">Início</a> / <a href="/golpes/">Golpes</a> / {golpe.title}</div><section class="page-hero"><div class="container"><span class="badge">{golpe.accent}</span><h1 style="margin-top:18px">{golpe.title}</h1><p class="hero-copy">{golpe.short}</p></div></section><section style="padding-top:10px"><div class="container two-col"><article class="card"><div class="card-icon">!</div><h2>Se está acontecendo agora</h2><ul class="checklist">{golpe.now.map(x=><li>{x}</li>)}</ul></article><article class="card"><h2>Como a abordagem avança</h2><div class="signal-list">{golpe.steps.map((x,i)=><div class="signal"><b>{i+1}</b><span>{x}</span></div>)}</div></article></div></section><section><div class="container split"><article class="prose"><span class="eyebrow">Atenção</span><h2>Sinais que merecem uma pausa</h2><ul class="checklist">{golpe.signs.map(x=><li>{x}</li>)}</ul></article><aside class="callout"><h3>Regra de ouro</h3><p>Não confirme a história usando telefone, link ou contato fornecido por quem fez a abordagem. Procure o canal oficial por conta própria.</p><a class="button" href="/identificar-golpe/">Avaliar outros sinais</a></aside></div></section><section class="urgent-section"><div class="container"><h2>Houve pagamento ou acesso à conta?</h2><p class="hero-copy">Interrompa novos contatos, acione imediatamente a instituição financeira pelo aplicativo oficial, preserve os comprovantes e registre a ocorrência.</p><a class="button" href="/fui-vitima/">Ver passos de emergência →</a></div></section><section><div class="container"><div class="disclaimer"><strong>Conteúdo educativo em desenvolvimento.</strong> Este guia não confirma que uma situação é criminosa e não substitui orientação individual de banco, polícia ou advogado. Fontes e revisão editorial serão exibidas antes do lançamento público.</div></div></section></BaseLayout>
+
+<BaseLayout noindex title={golpe.title} description={`${golpe.short} Veja sinais de alerta e saiba como agir.`}>
+  <div class="container breadcrumbs"><a href="/">Início</a> / <a href="/golpes/">Golpes</a> / {golpe.title}</div>
+  <section class="page-hero"><div class="container"><span class="badge">{golpe.accent}</span><h1 style="margin-top:18px">{golpe.title}</h1><p class="hero-copy">{golpe.short}</p></div></section>
+  <section class="tool-section"><div class="container two-col">
+    <article class="card"><div class="card-icon">!</div><h2>Se está acontecendo agora</h2><ul class="checklist">{golpe.now.map((item) => <li>{item}</li>)}</ul></article>
+    <article class="card"><h2>Como a abordagem pode avançar</h2><div class="signal-list">{golpe.steps.map((item, index) => <div class="signal"><b>{index + 1}</b><span>{item}</span></div>)}</div></article>
+  </div></section>
+  <section><div class="container split"><article class="prose"><span class="eyebrow">Atenção</span><h2>Sinais que merecem uma pausa</h2><ul class="checklist">{golpe.signs.map((item) => <li>{item}</li>)}</ul></article><aside class="callout"><h3>Regra de verificação</h3><p>Não confirme a história usando telefone, link ou contato fornecido por quem fez a abordagem. Procure o canal oficial por conta própria.</p><a class="button" href="/identificar-golpe/">Avaliar outros sinais</a></aside></div></section>
+  <section class="urgent-section"><div class="container"><h2>Houve pagamento ou acesso à conta?</h2><p class="hero-copy">Interrompa novos contatos, avise a instituição financeira pelos canais oficiais, preserve os registros e procure a Polícia Civil.</p><a class="button" href="/fui-vitima/">Ver passos de emergência →</a></div></section>
+  <section><div class="container"><div class="disclaimer"><strong>Guia beta em revisão editorial.</strong> Esta ficha resume padrões educativos e não confirma que uma situação, pessoa ou site seja criminoso ou legítimo. Consulte as fontes oficiais e os canais de ajuda antes de agir.</div></div></section>
+</BaseLayout>
