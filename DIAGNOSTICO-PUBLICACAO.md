@@ -72,3 +72,11 @@ Código, imagem original, verificação de publicação e documentação reunido
 - Política de privacidade, CSP, home e README atualizados.
 - Build sem erros; cenários locais, DNS simulado, privacidade das solicitações e links das 24 páginas aprovados.
 - Publicado sem-golpe_20261017_100000.zip. Chrome: example.com exibiu IPv4/IPv6; teste-sem-golpe-20261017.invalid exibiu NXDOMAIN. Falha transitória da primeira consulta exibiu mensagem inconclusiva corretamente.
+
+## Consulta de banco e agência — publicada em 17/10/2026
+- Página /consultar-agencia/ adicionada à home e ferramentas; apenas código de banco e agência, sem dados de cliente.
+- Fonte oficial BCB: 13.663 registros de agência na fonte; 12.898 vinculados por identificadores exatos à relação STR; 461 códigos bancários no índice. Posição 15/10/2026, coleta 17/10/2026.
+- Arquivos de banco carregados da própria hospedagem; número de agência filtrado localmente. Busca Google opcional e explícita. Política de privacidade atualizada.
+- Base derivada sob ODbL com atribuição, fontes, documentação de cobertura e script de atualização reproduzível.
+- Testes de normalização, zeros, dígito após hífen, busca exata, ausências e integridade dos 461 arquivos aprovados; build sem erros/avisos, 25 páginas, links internos aprovados.
+- Pacote sem-golpe_20261017_101000.zip publicado via Hostinger. Chrome: banco 104, agência 02816-0 exibiu Barra Velha/SC, Rua Gov. Celso Ramos, 381, CEP 88390-000, conforme a fonte.

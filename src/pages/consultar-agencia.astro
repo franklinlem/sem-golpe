@@ -1,0 +1,51 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import indice from '../../public/dados/agencias/indice.json';
+---
+<BaseLayout title="Consultar banco e agência" description="Consulte o endereço cadastral de uma agência pelo código do banco e número da agência, em base pública do Banco Central.">
+<div class="container breadcrumbs"><a href="/">Início</a> / <a href="/ferramentas/">Ferramentas</a> / Consultar agência</div>
+<section class="page-hero"><div class="container"><span class="eyebrow">Dados públicos do Banco Central</span><h1>Onde fica a agência?</h1><p class="hero-copy">Informe o código do banco e a agência que aparecem no comprovante. Consulte o endereço cadastral, município e UF, sem enviar o comprovante ou informar a conta.</p><p>Posição dos dados na fonte: <strong>{indice.posicoes.join(', ')}</strong>. Base coletada em <time datetime={indice.coleta}>{new Date(indice.coleta).toLocaleDateString('pt-BR', {timeZone:'America/Sao_Paulo'})}</time>.</p></div></section>
+<section style="padding-top:0"><div class="container prose"><form id="agency-form" class="card tool-shell"><div class="two-col"><div class="field"><label for="bank-code">Código do banco</label><input id="bank-code" type="text" inputmode="numeric" autocomplete="off" maxlength="3" placeholder="Ex.: 001" required/><small>Três dígitos do banco. Não é o ISPB.</small></div><div class="field"><label for="agency-code">Número da agência</label><input id="agency-code" type="text" autocomplete="off" maxlength="12" placeholder="Ex.: 1234 ou 1234-5" required/><small>O dígito após o hífen não faz parte da busca.</small></div></div><p>A pesquisa usa arquivos públicos do Sem Golpe e filtra a agência no navegador. Não pedimos nome, CPF, conta, chave Pix ou comprovante.</p><div class="actions"><button class="button" type="submit">Consultar endereço</button><button class="button secondary" type="reset">Limpar</button></div></form><div id="agency-result" class="result" role="status" aria-live="polite" style="margin-top:24px"></div><div class="disclaimer" style="margin-top:24px"><strong>Endereço cadastral, não localização de pessoas.</strong> A agência do comprovante não indica onde mora ou está o destinatário. Confirme o endereço e o canal adequado com a instituição antes de utilizá-los em uma solicitação formal.</div>
+<h2>Se a agência não aparecer</h2><p>A base pode não incluir unidades encerradas, postos, cooperativas, agências digitais ou instituições cujo cadastro não tenha correspondência nesta coleção. Uma ausência não prova que a agência seja falsa. Não substituímos o endereço da agência pelo da sede do banco.</p><h2>Fonte e atualização</h2><p>Dados do <a href="https://dadosabertos.bcb.gov.br/dataset/agencias">Banco Central — Agências de Instituições Supervisionadas</a>, relacionados aos códigos da <a href="https://www.bcb.gov.br/content/estabilidadefinanceira/str1/ParticipantesSTR.csv">lista de participantes STR</a>. Esta consulta usa uma cópia datada, não uma consulta em tempo real. O endereço pode mudar depois da posição informada.</p><p>Base derivada disponível sob <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL 1.0</a>. Veja <a href="/dados/agencias/LEIA-ME.md">origem, cobertura e reprodução dos dados</a>.</p></div></section>
+</BaseLayout>
+<script>
+import {normalizarBanco, normalizarAgencia, localizarAgencias} from '@/core/agencias';
+type Banco = {codigo:string; nome:string; ispb:string; agenciasNaBase:number};
+type Agencia = {CodigoCompe:string; NomeAgencia:string; Endereco:string; Numero:string; Complemento:string; Bairro:string; Cep:string; Municipio:string; UF:string; Posicao:string};
+const form=document.querySelector<HTMLFormElement>('#agency-form')!;
+const bankInput=document.querySelector<HTMLInputElement>('#bank-code')!;
+const agencyInput=document.querySelector<HTMLInputElement>('#agency-code')!;
+const result=document.querySelector<HTMLDivElement>('#agency-result')!;
+let controller:AbortController|undefined; let version=0;
+function text(tag:string,value:string){const node=document.createElement(tag);node.textContent=value;result.append(node);}
+function link(label:string,url:string){const node=document.createElement('a');node.textContent=label;node.href=url;node.target='_blank';node.rel='noopener noreferrer';node.className='button secondary';result.append(node);}
+async function getJSON(url:string, signal:AbortSignal){const response=await fetch(url,{signal,credentials:'omit'});if(!response.ok)throw new Error('Não foi possível carregar a base. Tente novamente.');return response.json();}
+form.addEventListener('reset',()=>{version++;controller?.abort();result.replaceChildren();result.classList.remove('show');});
+form.addEventListener('submit',async event=>{
+ event.preventDefault();version++;const current=version;controller?.abort();result.replaceChildren();result.classList.add('show');
+ let bankCode:string, agencyCode:string;
+ try{bankCode=normalizarBanco(bankInput.value);agencyCode=normalizarAgencia(agencyInput.value);}catch(error){text('h2','Confira os campos');text('p',(error as Error).message);return;}
+ controller=new AbortController();const signal=controller.signal;const timer=setTimeout(()=>controller?.signal===signal&&controller.abort(),15000);
+ text('p','Consultando a base pública…');
+ try{
+  const index=await getJSON('/dados/agencias/indice.json',signal) as {bancos:Banco[]};
+  if(current!==version)return;
+  const bank=index.bancos.find(item=>item.codigo===bankCode);
+  result.replaceChildren();
+  if(!bank){text('h2','Código de banco não encontrado nesta base');text('p','Confira os três dígitos no comprovante. A ausência no cadastro não permite concluir que o banco ou o comprovante sejam falsos.');link('Consultar instituições no Banco Central','https://www.bcb.gov.br/meubc/encontreinstituicao');return;}
+  text('h2',`${bank.codigo} — ${bank.nome}`);
+  const payload=await getJSON(`/dados/agencias/${bankCode}.json`,signal) as {banco:Banco;agencias:Agencia[]};
+  if(current!==version)return;
+  if(payload.banco.codigo!==bankCode||!Array.isArray(payload.agencias))throw new Error('Resposta inesperada da base. Tente novamente.');
+  const matches=localizarAgencias(payload.agencias,agencyCode);
+  if(!matches.length){text('h3','Agência não encontrada nesta cópia');text('p',`Não encontramos a agência ${agencyCode} para este banco. Confira os zeros e o dígito verificador. Agências digitais, cooperativas, postos e unidades encerradas podem não estar cobertos. Nenhum endereço foi atribuído por aproximação.`);}
+  else{
+   if(matches.length>1)text('p','Há mais de um registro para esta combinação. Confira todos os resultados com o banco.');
+   matches.forEach(agency=>{text('h3',`Agência ${agency.CodigoCompe} — ${agency.NomeAgencia}`);text('p',[agency.Endereco,agency.Numero,agency.Complemento].filter(Boolean).join(', ')||'Logradouro não informado na fonte.');text('p',[agency.Bairro,`${agency.Municipio} / ${agency.UF}`,agency.Cep?`CEP ${agency.Cep}`:''].filter(Boolean).join(' — '));text('p',`Posição do cadastro: ${agency.Posicao}. Fonte: Banco Central do Brasil.`);});
+  }
+  text('p','Busca complementar opcional: o Google receberá o nome do banco e o número da agência. Confira resultados no site oficial da instituição; anúncios e diretórios podem estar desatualizados.');
+  const search=new URL('https://www.google.com/search');search.searchParams.set('q',`${bank.nome} agência ${agencyCode} endereço`);link('Pesquisar banco e agência na web',search.href);
+ }catch(error){if(current===version){result.replaceChildren();text('h2','Consulta não concluída');text('p',signal.aborted?'Tempo esgotado. Tente novamente; isso não significa que a agência não exista.':(error as Error).message);}}
+ finally{clearTimeout(timer);}
+});
+</script>

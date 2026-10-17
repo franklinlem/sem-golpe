@@ -9,7 +9,8 @@ Conteúdo educativo. O projeto não substitui polícia, banco, advogado ou atend
 ## Recursos
 
 - Identificador educativo de sinais de risco
-- Verificador local de links
+- Verificador de links com consulta opcional ao DNS público
+- Consulta de banco e agência em base pública do Banco Central
 - Gerador de prompt seguro para IA
 - Guias sobre modalidades de golpes
 - Roteiro de ação para vítimas
@@ -45,3 +46,7 @@ Desenvolvido por Franklin Martins, Investigador de Polícia de Classe Especial, 
 
 Todos os direitos reservados até a definição separada das licenças do código, conteúdo e identidade visual.
 
+
+## Base de agências
+
+Atualize com `python3 scripts/atualizar-agencias.py`, confira cobertura/data, execute o build e publique o novo artefato. A consulta não é em tempo real e não substitui confirmação com o banco. Dados derivados do Banco Central sob ODbL 1.0; origem e licença em `public/dados/agencias/LEIA-ME.md`.

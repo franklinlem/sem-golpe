@@ -38,3 +38,13 @@ Retomar o código existente, validar a versão inicial e preparar publicação e
 - Cancelar consulta ao limpar ou iniciar outra análise e impedir resultado antigo sobre endereço novo.
 - Testar respostas simuladas de DNS, falhas e minimização de dados, compilar, publicar e verificar domínio existente e inexistente no navegador.
 - Referência: https://developers.google.com/speed/public-dns/docs/doh/json
+
+## Consulta pública de banco e agência
+1. Obter relação oficial de participantes STR (código bancário/ISPB) e agências (OData Informes_Agencias) do Banco Central.
+2. Gerar snapshot estático por instituição, com origem, licença ODbL, data de coleta e posição do cadastro; relacionar pelo identificador institucional de oito dígitos e registrar cobertura/limites. Sem busca aproximada por nome de banco ou por sequencial do CNPJ.
+3. Página /consultar-agencia/: dois campos (código bancário e agência), normalização de zeros e dígito separado por hífen; endereço, nome, cidade/UF, CEP, código cadastral, data e fonte.
+4. Quando a combinação não constar, não inventar localização ou usar sede. Oferecer busca web explícita só com banco e agência, informando destino.
+5. Dados são arquivos públicos do próprio portal, filtrados no navegador; nenhum número de conta, CPF, comprovante ou nome de cliente é solicitado.
+6. Adicionar ferramentas/home, atualizar privacidade e README, testar códigos repetidos entre bancos, zeros, hífen, ausências, falhas e links. Build, deploy, verificação em produção e commit.
+7. Criar script reproduzível para atualizar a base; atualização automática requer monitorar mudanças de schema e cobertura, sem publicar snapshot vazio.
+Fontes: https://dadosabertos.bcb.gov.br/dataset/agencias ; https://www.bcb.gov.br/content/estabilidadefinanceira/str1/ParticipantesSTR.csv
