@@ -3,3 +3,6 @@
 @media(max-width:850px){.nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:#0a0a0a;padding:20px;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--border)}.nav-links.open{display:flex}.menu-button{display:block}.grid,.steps,.tools-grid{grid-template-columns:1fr 1fr}.split,.footer-grid{grid-template-columns:1fr}.visual-panel{min-height:360px}.hero{padding-top:60px}}
 @media(max-width:560px){body{font-size:16px}.container{width:min(calc(100% - 26px),var(--max))}.grid,.steps,.tools-grid,.two-col{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.hero{padding:50px 0}.hero h1{font-size:2.7rem}.actions .button{width:100%}section{padding:55px 0}.trust-row{display:grid;gap:10px}.page-hero h1{font-size:2.55rem}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+
+.conversa-educativa{margin:0 auto;width:100%;max-width:400px}.conversa-educativa img{display:block;width:100%;height:auto;border-radius:24px}.conversa-educativa figcaption{margin-top:16px;font-size:.9rem;color:var(--muted)}.conversa-educativa details{margin-top:14px;font-size:.9rem}.conversa-educativa summary{cursor:pointer;color:var(--orange-light)}.conversa-educativa summary:focus-visible{outline:2px solid var(--orange);outline-offset:4px}

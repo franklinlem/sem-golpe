@@ -1,0 +1,9 @@
+---
+import { Image } from 'astro:assets';
+import conversa from '@/assets/conversa-ficticia-whatsapp.png';
+---
+<figure class="conversa-educativa">
+  <Image src={conversa} alt="Simulação educativa de WhatsApp: perfil chamado Filha pede à mãe um pagamento urgente e propõe receber por Pix." widths={[320, 480, 640]} sizes="(max-width: 850px) 85vw, 400px" width={640} format="webp" quality={82} loading="lazy" decoding="async" />
+  <figcaption><strong>Conversa fictícia — simulação educativa.</strong> Foto e nome conhecidos não confirmam a identidade de quem envia a mensagem.</figcaption>
+  <details><summary>Ler a mensagem da imagem</summary><p>“Oi mãe, tudo bem? Preciso pagar um boleto urgente, vence hoje, mas recebo só amanhã. Paga pra mim? Vou ti passar o Pix é mais fácil.”</p><p>Antes de pagar, fale com a pessoa pelo número já conhecido. A urgência e a mudança para Pix são sinais para interromper e verificar.</p></details>
+</figure>

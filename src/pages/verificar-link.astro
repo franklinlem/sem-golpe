@@ -3,6 +3,45 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Verificar link suspeito" description="Examine o domínio de um link suspeito localmente, sem abrir o endereço."><div class="container breadcrumbs"><a href="/">Início</a> / Verificar link</div><section class="page-hero"><div class="container"><span class="eyebrow">Não abrimos o endereço</span><h1>Veja o domínio real antes de clicar.</h1><p class="hero-copy">Cole o link. A análise acontece apenas neste navegador e destaca sinais técnicos que merecem atenção.</p></div></section><section style="padding-top:10px"><div class="container"><form id="url-form" class="card tool-shell"><div class="field"><label for="suspect-url">Link ou domínio suspeito</label><input id="suspect-url" type="text" inputmode="url" autocomplete="off" placeholder="exemplo: banco-seguro.example/confirmar" required/><small>Não cole links com senhas, tokens ou dados pessoais.</small></div><div class="actions"><button class="button" type="submit">Examinar sem abrir</button><button class="button secondary" type="reset">Limpar</button></div><div id="url-result" class="result" role="status" aria-live="polite"></div></form><div class="disclaimer" style="margin-top:22px"><strong>Importante:</strong> cadeado e HTTPS não provam que um site é legítimo. Procure o endereço oficial por conta própria.</div></div></section></BaseLayout>
 <script>
-const form=document.querySelector<HTMLFormElement>('#url-form')!;const input=document.querySelector<HTMLInputElement>('#suspect-url')!;const out=document.querySelector('#url-result')!;
-form.addEventListener('reset',()=>setTimeout(()=>out.classList.remove('show'),0));form.addEventListener('submit',e=>{e.preventDefault();let raw=input.value.trim();if(!/^[a-z][a-z0-9+.-]*:/i.test(raw))raw='https://'+raw;try{const u=new URL(raw);const host=u.hostname;const flags:string[]=[];if(u.protocol!=='https:')flags.push('não usa HTTPS');if(/^\d{1,3}(\.\d{1,3}){3}$/.test(host))flags.push('usa um endereço IP em vez de domínio');if(host.startsWith('xn--')||host.includes('.xn--'))flags.push('contém caracteres internacionais codificados (punycode)');if(host.split('.').length>4)flags.push('possui muitos níveis de subdomínio');if(u.port&&!['80','443'].includes(u.port))flags.push(`usa porta incomum (${u.port})`);if(u.username||u.password)flags.push('inclui credenciais antes do domínio');const parts=host.split('.');const registrable=parts.length>=2?parts.slice(-2).join('.'):host;out.innerHTML=`<span class="badge">Análise local</span><h2 style="margin-top:14px;word-break:break-word">${host}</h2><p><strong>Domínio aparente:</strong> ${registrable}</p>${flags.length?`<h3>Sinais técnicos encontrados</h3><ul>${flags.map(f=>`<li>${f}</li>`).join('')}</ul>`:'<p>Nenhum dos sinais técnicos básicos foi encontrado. Isso <strong>não comprova legitimidade</strong>.</p>'}<p>Confirme o domínio no aplicativo ou documento oficial da instituição, sem usar contatos presentes na mensagem.</p>`;out.classList.add('show');}catch{out.innerHTML='<h2>Não foi possível interpretar o endereço</h2><p>Confira se o link contém um domínio, como exemplo.com.br. Não tente abri-lo para corrigir.</p>';out.classList.add('show');}});
+const form = document.querySelector<HTMLFormElement>('#url-form')!;
+const input = document.querySelector<HTMLInputElement>('#suspect-url')!;
+const out = document.querySelector('#url-result')!;
+function addText(tag: string, text: string) {
+  const element = document.createElement(tag);
+  element.textContent = text;
+  out.append(element);
+}
+form.addEventListener('reset', () => { out.replaceChildren(); out.classList.remove('show'); });
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  out.replaceChildren();
+  let raw = input.value.trim();
+  if (!/^[a-z][a-z0-9+.-]*:/i.test(raw)) raw = 'https://' + raw;
+  try {
+    const url = new URL(raw);
+    if (!['http:', 'https:'].includes(url.protocol) || !url.hostname) throw new Error('Endereço inválido');
+    const host = url.hostname;
+    const flags: string[] = [];
+    if (url.protocol !== 'https:') flags.push('Não usa HTTPS.');
+    if (/^\d{1,3}(\.\d{1,3}){3}$/.test(host) || host.startsWith('[')) flags.push('Usa endereço IP em vez de domínio.');
+    if (host.split('.').some(part => part.startsWith('xn--'))) flags.push('Contém caracteres internacionais codificados (punycode).');
+    if (host.split('.').length > 4) flags.push('Possui muitos níveis de subdomínio.');
+    if (url.port && !['80', '443'].includes(url.port)) flags.push(`Usa porta incomum (${url.port}).`);
+    if (url.username || url.password) flags.push('Inclui credenciais antes do domínio; o nome antes de @ não identifica o site de destino.');
+    addText('span', 'Análise local');
+    addText('h2', host);
+    addText('p', 'Este é o nome completo do servidor de destino, incluindo subdomínios. Não reduzimos o endereço aos dois últimos termos: em endereços como exemplo.com.br, isso mostraria apenas com.br.');
+    if (flags.length) {
+      addText('h3', 'Sinais técnicos encontrados');
+      const list = document.createElement('ul');
+      flags.forEach(flag => { const item = document.createElement('li'); item.textContent = flag; list.append(item); });
+      out.append(list);
+    } else addText('p', 'Nenhum dos sinais técnicos básicos foi encontrado. Isso não comprova legitimidade.');
+    addText('p', 'Confirme o endereço completo no aplicativo ou documento oficial da instituição, sem usar contatos presentes na mensagem. Nomes de marcas em subdomínios não demonstram vínculo com a instituição.');
+  } catch {
+    addText('h2', 'Não foi possível interpretar o endereço');
+    addText('p', 'Informe um endereço HTTP ou HTTPS com domínio, como exemplo.com.br. Não tente abri-lo para corrigir.');
+  }
+  out.classList.add('show');
+});
 </script>
