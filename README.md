@@ -56,3 +56,7 @@ Atualize com `python3 scripts/atualizar-agencias.py`, confira cobertura/data, ex
 Pix/MED, preservação de provas e canais oficiais têm rotas próprias. As revisões de Pix, falsa central, falso boleto e falso parente incluem fontes, perguntas frequentes e data de conferência. A data não representa aprovação jurídica/institucional. O checklist de provas permite exportação local de itens, sem dados do caso.
 
 A segunda rodada amplia falso advogado, intermediário de veículo, falso leilão e falso trader. Os exemplos são fictícios e os cadastros oficiais não são tratados como prova de autenticidade da mensagem, plataforma ou oferta.
+
+## Compartilhamento e ConfirmADV
+
+Home e guias oferecem WhatsApp e cópia da URL canônica, sem dados das ferramentas. ConfirmADV aparece em Ferramentas como acesso externo oficial; não foi encontrada documentação de API pública para integração automática. A consulta e eventual denúncia são realizadas nos serviços da OAB.

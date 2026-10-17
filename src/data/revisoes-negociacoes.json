@@ -62,10 +62,18 @@
       {
         "title": "Coloque as versões na mesma conversa",
         "items": [
-          "Antes de pagar ou entregar o veículo, confirme diretamente com o proprietário quem vende, por qual valor e a quem será feito o pagamento.",
+          "Peça para ver o documento do veículo e confira quem consta como proprietário. Antes de pagar, confronte essa identificação com a da pessoa que está vendendo e com o titular da conta de destino.",
+          "Nesta orientação de prevenção, faça o pagamento unicamente ao proprietário que consta no documento do veículo. Não deposite em conta de intermediário, suposto parente ou terceiro indicado por mensagem.",
           "Recuse pedidos de segredo sobre preço, titularidade ou suposto parentesco. Uma visita ao veículo não esclarece, sozinha, quem receberá o dinheiro.",
-          "Confira identificação, documentos do veículo e poderes de representação pelos canais oficiais e com apoio profissional quando necessário.",
+          "Confira a documentação e a titularidade pelos canais oficiais. Se houver loja, financiamento, inventário ou representação, interrompa o fluxo comum e procure orientação para verificar os documentos e o destinatário correto antes de pagar.",
           "O vendedor deve conferir a entrada efetiva do valor no próprio banco; uma imagem de comprovante não basta para confirmar o recebimento."
+        ]
+      },
+      {
+        "title": "Documente também para fins fiscais",
+        "paragraphs": [
+          "Guarde documento do veículo, contrato ou recibo, identificação das partes, valor, data e comprovante do pagamento ao proprietário. Esses registros ajudam a demonstrar a origem e o destino dos valores e a aquisição ou alienação do veículo.",
+          "Quem estiver obrigado a apresentar a declaração de Imposto de Renda deve observar as regras aplicáveis à compra ou venda e à informação do bem. Pode haver apuração de ganho de capital conforme o caso. Não é toda pessoa ou toda venda que gera a mesma obrigação; confira as orientações da Receita Federal ou de profissional contábil."
         ]
       },
       {
@@ -83,7 +91,7 @@
       },
       {
         "question": "A conta de um terceiro significa necessariamente fraude?",
-        "answer": "Não é uma conclusão automática, mas exige esclarecimento antes do pagamento. Não transfira apenas com a autorização verbal de quem está intermediando uma negociação que você não conseguiu conferir."
+        "answer": "A recomendação preventiva deste guia é não pagar a terceiros: confira o documento e pague somente ao proprietário indicado. Negociações com loja ou representação exigem documentação própria e verificação adicional. Uma divergência não autoriza acusar alguém, mas é motivo para interromper a operação."
       }
     ],
     "sources": [
@@ -94,6 +102,14 @@
       {
         "title": "Agência Goiás — Dinâmica do golpe em negociações online",
         "url": "https://agencia.go.gov.br/policia-prende-15-por-golpe-do-intermediario-na-web/"
+      },
+      {
+        "title": "Receita Federal — Perguntas e respostas sobre a declaração",
+        "url": "https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/perguntas-frequentes/imposto-de-renda/dirpf"
+      },
+      {
+        "title": "Receita Federal — Operações e ganho de capital",
+        "url": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda/pagamento/ganhos-de-capital/operacoes-sujeitas-ao-imposto"
       }
     ]
   },
@@ -113,6 +129,13 @@
           "Verifique a situação do leiloeiro na Junta Comercial correspondente e procure um contato independente. Não use somente o cadastro ou telefone que o próprio site suspeito exibe.",
           "Leia no edital como funciona o pagamento e confirme os dados com o responsável oficial. Não aceite uma mudança de beneficiário enviada apenas por mensagem.",
           "HTTPS, domínio registrado e aparência profissional não garantem legitimidade. O verificador de links do Sem Golpe não aprova leilões."
+        ]
+      },
+      {
+        "title": "Confira o endereço em Maps e Street View",
+        "paragraphs": [
+          "Pesquise por conta própria o endereço informado do pátio, leilão ou escritório do leiloeiro. Compare a localização e as imagens de rua com o estabelecimento anunciado: um endereço incompatível, terreno vazio ou outro comércio merece esclarecimento antes de qualquer pagamento.",
+          "Essa checagem é complementar. Imagens podem ser antigas, e o golpista pode copiar o endereço de um pátio ou leiloeiro real. Encontrar o local no mapa não prova vínculo com o site ou com o lote. Confirme endereço, edital e responsável por um canal oficial independente."
         ]
       },
       {
@@ -158,6 +181,13 @@
         ]
       },
       {
+        "title": "Perfis falsos e apresentadores gerados por IA",
+        "paragraphs": [
+          "Uma oferta pode chegar por um perfil falso em rede social, com relatos de altos ganhos sem risco. O apresentador pode ser um avatar, ou o vídeo pode usar imagem e voz manipuladas por inteligência artificial. Aparência profissional, seguidores e fala convincente não comprovam a identidade nem a autorização de quem oferece o investimento.",
+          "Não tente decidir apenas se o vídeo parece real: verifique a pessoa ou empresa, a oferta e os contatos em canais oficiais. Não envie dinheiro a partir do link do anúncio nem sob pressão de um grupo ou de um suposto assessor."
+        ]
+      },
+      {
         "title": "Verifique pessoa, oferta e canal separadamente",
         "items": [
           "Procure registros e alertas no site oficial da CVM quando a atividade ou o produto estiver no mercado de valores mobiliários. Nem toda atividade financeira tem o mesmo regulador.",
@@ -196,6 +226,10 @@
       {
         "title": "CVM — Cuidados com ofertas de criptoativos e forex",
         "url": "https://www.gov.br/cvm/pt-br/assuntos/protecao/mercado-forex/criptoativos-forex"
+      },
+      {
+        "title": "Banco Central — Golpes e uso de imagem ou voz por inteligência artificial",
+        "url": "https://www.bcb.gov.br/meubc/faqs/s/golpes"
       }
     ]
   }

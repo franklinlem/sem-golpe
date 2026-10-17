@@ -76,3 +76,12 @@ Fontes: https://dadosabertos.bcb.gov.br/dataset/agencias ; https://www.bcb.gov.b
 - Conferir fontes primárias OAB, Polícia Civil, Junta Comercial e CVM; não afirmar legitimidade por cadastro isolado.
 - Acrescentar verificação independente, roteiro após pagamento, preservação de registros e perguntas frequentes.
 - Reutilizar fontes/datas e navegação existentes, validar build/testes, publicar e sincronizar GitHub.
+
+## Compartilhamento, OAB e ajustes de orientação — 17/10/2026
+- Investigar documentação pública do ConfirmADV; sem API pública documentada encontrada, incluir acesso explícito à ferramenta oficial, sem consultar endpoints internos ou coletar dados profissionais no portal.
+- Ampliar links contextuais: OAB → nacional, ConfirmADV → pesquisa, denúncia à OAB → canal informado; prioridade para expressão completa, sem alterar links existentes.
+- Adicionar compartilhamento WhatsApp e cópia de URL canônica na home e em todos os guias, sem dados digitados, parâmetros ou envio automático. Fallback manual de cópia quando clipboard indisponível.
+- Veículo: pedir documento e pagar somente ao proprietário indicado, com titularidade da conta conferida. Orientação fiscal condicional à obrigação de declarar/apuração aplicável, sem afirmar que toda pessoa deve declarar ou que toda venda gera imposto.
+- Leilão: Maps/Street View como verificação complementar de endereço, alertando para imagens antigas e cópia de endereço de local real.
+- Falso trader: perfis falsos, promessa sem risco e avatares IA, sem generalizar observações de poucos casos sobre escolaridade como dado estatístico.
+- Build, testes de destinos/compartilhamento, validação em produção, publicação e commit.

@@ -1,0 +1,26 @@
+---
+interface Props {title:string;}
+const {title}=Astro.props;
+const canonical=new URL(Astro.url.pathname,Astro.site!).href;
+const whatsapp=new URL('https://wa.me/');
+whatsapp.searchParams.set('text',`${title} — Sem Golpe\n${canonical}`);
+---
+<div class="share-block no-print" data-share-block data-share-url={canonical} aria-label="Compartilhar esta página">
+  <p>Esta orientação pode ajudar alguém. Compartilhe:</p>
+  <div class="actions"><a class="button secondary" href={whatsapp.href} target="_blank" rel="noopener noreferrer">Compartilhar no WhatsApp</a><button class="button secondary" type="button" data-copy-link>Copiar link</button></div>
+  <p class="share-status" data-share-status role="status" aria-live="polite"></p>
+  <label data-share-fallback hidden>Link desta página — selecione e copie:<input type="text" readonly value={canonical} aria-label="Link desta página para copiar manualmente"/></label>
+</div>
+<script>
+for(const block of document.querySelectorAll<HTMLElement>('[data-share-block]')){
+ const button=block.querySelector<HTMLButtonElement>('[data-copy-link]')!;
+ const status=block.querySelector<HTMLElement>('[data-share-status]')!;
+ const fallback=block.querySelector<HTMLLabelElement>('[data-share-fallback]')!;
+ button.addEventListener('click',async()=>{
+  button.disabled=true;
+  try{await navigator.clipboard.writeText(block.dataset.shareUrl!);fallback.hidden=true;status.textContent='Link copiado. Cole na conversa ou mensagem que desejar.';}
+  catch{fallback.hidden=false;const field=fallback.querySelector('input')!;field.focus();field.select();status.textContent='A cópia automática não está disponível. Selecione o link abaixo e copie manualmente.';}
+  finally{button.disabled=false;}
+ });
+}
+</script>

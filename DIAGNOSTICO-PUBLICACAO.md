@@ -110,3 +110,12 @@ Código, imagem original, verificação de publicação e documentação reunido
 - Build: 28 páginas, zero erros/avisos/hints, 38 menções com links oficiais. npm test aprovado após build concluído; tentativa anterior em paralelo ao build falhou porque dist estava sendo recriado, sem defeito funcional.
 - Pacote sem-golpe_20261017_110300.zip publicado. Quatro rotas responderam 200 com fontes e perguntas.
 - Chrome: guia de falso advogado, expansão de pergunta e resposta visível conferidos; sem rolagem horizontal na largura observada de 645px.
+
+## Compartilhamento, OAB e ajustes de guias — 17/10/2026
+- ConfirmADV nas Ferramentas como acesso externo oficial; não localizada documentação de API pública nas fontes oficiais pesquisadas. Não houve integração por endpoints internos.
+- Links contextuais OAB, ConfirmADV e denúncia à OAB incluídos; frase completa recebe destino de denúncia.
+- Home e 13 tipos de golpe com WhatsApp (título + URL canônica) e copiar link, com alternativa manual. Privacidade atualizada.
+- Veículo: documento, pagamento ao proprietário e nota fiscal condicional. Leilão: Maps/Street View como checagem complementar. Trader: perfis falsos, promessas sem risco e avatares IA; sem generalização estatística por escolaridade.
+- Build: 28 páginas, zero erros/avisos/hints. npm test incluindo compartilhamento de 14 páginas, cópia/fallback e novos destinos aprovado.
+- Publicado sem-golpe_20261017_113500.zip. Seis rotas conferidas HTTP 200 com textos/destinos.
+- Chrome: destinos OAB e denúncia, estado Link copiado e href WhatsApp conferidos, sem envio de mensagem. Layout em largura útil 375px sem rolagem horizontal; viewport restaurado.
